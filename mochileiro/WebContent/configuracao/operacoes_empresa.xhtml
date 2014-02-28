@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+	  lang="pt-br">
+	  
+	  <head>
+	  	<!-- ajustes para o formulário de busca na visão da empresa -->	  
+	  	<link href="../css/ajuste_busca_empresa.css" rel="stylesheet" type="text/css"/>
+	  </head>
+	
+	<body>
+		<h:form>
+			<ul>
+				<li><a href="../empresas/atualiza.xhtml" title="Atualizar informações do Perfil">Editar Perfil</a></li>
+				<li><h:commandLink action="#{listaEmpresa.getLista}" title="Acessar lista de Atividades da Empresa">Lista de Atividades</h:commandLink> </li>
+				<li><h:commandLink action="CADASTRAATIVIDADE" value="Cadastrar Atividade"></h:commandLink></li>
+				<li><h:commandLink action="#{buscaAtividade.acessaBusca}"  title="Pesquisar Atividades Cadastradas">Buscar Atividades</h:commandLink></li>
+				
+				<li><h:commandLink value="Gerenciar Parcerias" action="#{Parceria.acessaGerenciamentoParcerias}">
+					
+					<!-- seta empresa no MB -->
+					<f:setPropertyActionListener value="#{Empresa.empresa}" target="#{Parceria.empresa}" />
+					
+				</h:commandLink></li>
+				<li class="logout"><h:commandLink action="#{Autenticacao.logout}">Logout</h:commandLink> </li>
+				
+			</ul>
+		</h:form>
+	</body>
+</html>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core" lang="pt-br">
+
+
+<body>
+
+<ui:composition template="../configuracao/template.xhtml">
+
+	<ui:define name="titulo">
+		.:: O Mochileiro - Parceiros ::.
+		</ui:define>
+
+	<ui:define name="estilos">
+		<link href="../css/parcerias.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="../configuracao/eventosJavascript.js"></script>
+	</ui:define>
+
+	<ui:define name="conteúdo">
+		<h:form prependId="false">
+			<div id="cabecalho">
+			<div class="borda">
+			<h3>Lista de Parcerias - <span><h:outputText
+				 value="#{Parceria.empresa.nomeEmpresa}" /></span></h3>
+			</div>
+			</div>
+			
+		<div id="atv">
+			
+			<h:dataTable id="tabela" binding="#{Parceria.p.dataTable}"
+				value="#{Parceria.atvComParcSolic}" var="atvLista"
+				rows="#{Parceria.p.maxPorPagina}" width="100" rowClasses="linha_a, linha_b" border="1">
+
+				<h:column>				
+					<div id="atividade">
+						<h4>Nome da Atividade: <span><h:outputText
+							 name="ghf" value="#{atvLista.nomeAtividade}" /></span></h4>
+						<p>Comentários: <span><h:outputText
+							 value="#{atvLista.comentarios}" /> </span>| Data
+						de Cadastro: <span><h:outputText 
+							name="sds" value="#{atvLista.dataCadastro.dataFormatada}" /> </span> |
+						Categoria: <span class="categoria"><h:outputText
+							 value="#{atvLista.parceiro.categoria.nome}" /></span></p>
+					</div>
+
+					<div id="parceiro">
+						<h4>Nome do Parceiro: <span ><h:outputText
+							 value="#{atvLista.parceiro.nomeAtividade}" /></span></h4>
+						<p>Descrição Resumida: <span><h:outputText
+							 value="#{atvLista.parceiro.descricaoLista}" />
+						</span></p>
+	
+						<p>Comentários: <span><h:outputText
+							 value="#{atvLista.parceiro.comentarios}" />
+						</span> | Data de Cadastro: <span><h:outputText
+							
+							value="#{atvLista.parceiro.dataCadastro.dataFormatada}" /> </span> |
+						Categoria: <span class="categoria"><h:outputText
+							 value="#{atvLista.parceiro.categoria.nome}" /></span>
+
+						 <span> <h:commandLink 
+							title="Excluir Parceria entre #{atvLista.nomeLista} e #{atvLista.parceiro.nomeAtividade}"
+							onclick="return operacao(1);" action="#{Parceria.excluiParceria}"> Excluir Parceiro									      
+					
+						      <!-- envio objeto para manipulação -->
+							<f:setPropertyActionListener 
+								target="#{Parceria.atividade}" value="#{atvLista}" />
+						</h:commandLink> </span></p>
+					</div>
+				
+					</h:column>
+				</h:dataTable>
+		
+				<div id="linha60" class="paginacao">
+					<h:commandLink id="linha61" action="#{Parceria.p.primeiraPagina}" 
+	                value="Primeira" rendered="#{Parceria.p.dataTable.first!=0}" />
+	                 
+					<h:commandLink id="linha64" value="|" rendered="#{Parceria.p.dataTable.first!=0}" />
+	                 
+	                <h:commandLink id="linha66" value="Anterior" action="#{Parceria.p.paginaAnterior}"
+	                rendered="#{Parceria.p.dataTable.first != 0}" />
+					
+					<h:commandLink id="linha69" value="|" 
+  	                rendered="#{Parceria.p.dataTable.rowCount > Parceria.p.dataTable.first + Parceria.p.dataTable.rows and
+  	                (Parceria.p.dataTable.first != 0)}" />
+                	                
+	                <h:commandLink id="linha73" value="Próxima" action="#{Parceria.p.proximaPagina}"
+	                rendered="#{Parceria.p.dataTable.rowCount > Parceria.p.dataTable.first + Parceria.p.dataTable.rows}" />
+	              	                
+	                <h:commandLink id="linha76" value="|" rendered="#{Parceria.p.dataTable.rowCount > Parceria.p.dataTable.first + Parceria.p.dataTable.rows}" />
+	                    
+	                <h:commandLink id="linha78" value="Última" action="#{Parceria.p.ultimaPagina}"
+	                rendered="#{Parceria.p.dataTable.rowCount > Parceria.p.dataTable.first + Parceria.p.dataTable.rows}" />
+				</div>
+		</div>
+	</h:form>
+</ui:define>
+
+</ui:composition>
+
+</body>
+</html>
+

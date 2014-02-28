@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core" lang="pt-br">
+
+
+<body>
+
+<ui:composition template="../configuracao/template.xhtml">
+
+	<ui:define name="titulo">
+		.:: O Mochileiro - Solicitações ::.
+		</ui:define>
+
+	<ui:define name="estilos">
+		<link href="../css/parcerias.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="../configuracao/eventosJavascript.js"></script>
+	</ui:define>
+
+	<ui:define name="conteúdo">
+		
+		<h:form id="formSolic" prependId="false">
+			<div id="cabecalho">
+			<div class="borda">
+			<h3 id="1">Lista de Solicitações - <small/><h:outputText value="#{Parceria.empresa.nomeEmpresa}" id="l28"  /></h3>
+			</div>
+			</div>
+			
+		<div id="atv">
+			
+			<h3 id="aqz">Solicitações pendentes para a Atividade: <h:outputText value="#{Parceria.atividade.nomeAtividade}" /></h3>
+			
+			<h:dataTable id="tabwq" binding="#{Parceria.p.dataTable}"
+				value="#{Parceria.atividade.solicitacoes}" var="atvsolic"
+				rows="#{Parceria.p.maxPorPagina}" width="100" rowClasses="linha_a, linha_b" border="1">
+
+				<h:column id="asx" name="aqwerty">
+					
+					<div id="divChek">
+						
+						<!-- guarda código da solicitação em hashmap -->						
+						<h:selectBooleanCheckbox value="#{Parceria.itensSelecionados[atvsolic.codigoAtividade]}" id="klj"/>				
+						
+						<div id="atividadeSolic">
+							<h4 id="asfg">Nome do Solicitante: <h:outputText id="n123"  name="ghf" value="#{atvsolic.nomeAtividade}" /></h4>
+							<p id="poi">Comentários: <small /><h:outputText name="lxz" id="az" value="#{atvsolic.comentarios}" /> | 
+							Data de Cadastro: <small /><h:outputText id="vbnm" name="sds" value="#{atvsolic.dataCadastro.dataFormatada}" /> |
+							     Categoria: <span class="categoria" id="azx"><h:outputText id="bvc" value="#{atvsolic.categoria.nome}" /></span>
+								
+												     
+								<!-- invoca método responsável por firmar parceria -->
+								<h:commandLink title="aceitar solicitação" onclick="return operacao(2);" 
+								action="#{Parceria.atualizaParceria}" styleClass="btn" id="cx">
+									<strong id="b54">Firmar Parceria</strong>
+									
+									<!-- seta objeto solicitado no MB -->
+									<f:setPropertyActionListener id="lin54" target="#{Parceria.parceiroSolicitacao}" value="#{atvsolic}" />
+								</h:commandLink>
+								
+								</p>															     						    
+						</div>
+					</div>
+			</h:column>
+			
+		</h:dataTable>		
+		
+				<div id="linha100" class="paginacao">
+					
+					<h:commandLink id="linh61" action="#{Parceria.p.primeiraPagina}" 
+	                value="Primeira" rendered="#{Parceria.p.dataTable.first!=0}" />
+	                 
+					<h:commandLink id="liha64" value="|" rendered="#{Parceria.p.dataTable.first!=0}" />
+	                 
+	                <h:commandLink id="inha66" value="Anterior" action="#{Parceria.p.paginaAnterior}"
+	                rendered="#{Parceria.p.dataTable.first != 0}" />
+					
+					<h:commandLink id="lha69" value="|" 
+  	                rendered="#{Parceria.p.dataTable.rowCount > Parceria.p.dataTable.first + Parceria.p.dataTable.rows and
+  	                (Parceria.p.dataTable.first != 0)}" />
+                	                
+	                <h:commandLink id="liha73" value="Próxima" action="#{Parceria.p.proximaPagina}"
+	                rendered="#{Parceria.p.dataTable.rowCount > Parceria.p.dataTable.first + Parceria.p.dataTable.rows}" />
+	              	                
+	                <h:commandLink id="linaha76" value="|" rendered="#{Parceria.p.dataTable.rowCount > Parceria.p.dataTable.first + Parceria.p.dataTable.rows}" />
+	                    
+	                <h:commandLink id="linddha78" value="Última" action="#{Parceria.p.ultimaPagina}"
+	                rendered="#{Parceria.p.dataTable.rowCount > Parceria.p.dataTable.first + Parceria.p.dataTable.rows}" />
+				</div>
+				
+				 <h:commandButton id="botao" action="#{Parceria.excluiSolicitacao}" value="Excluir Seleção" />
+				
+		</div>
+	</h:form>
+</ui:define>
+
+</ui:composition>
+
+</body>
+</html>
+

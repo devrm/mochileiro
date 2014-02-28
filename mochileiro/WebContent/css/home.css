@@ -1,0 +1,31 @@
+	#dados {
+		border: 1px solid silver;
+		width: 706px;
+		float: right;
+		margin-bottom: 5px;
+	}
+	
+	#objetivo {
+		margin: 10px;
+		text-align: justify;
+	}
+	
+	#objetivo h3 {
+		color: black;
+		margin:-2px 0 4px 0;
+	}
+	
+	#objetivo strong {
+		color: orange;
+	}
+	
+	#objetivo p {
+		margin-top: 8px;
+		font-style: italic;
+		text-align: justify;
+		font-weight: bold;
+	}
+	
+	br{
+		height:5px;
+	}

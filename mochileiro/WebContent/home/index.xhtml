@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+	  lang="pt-br">
+	
+    <body>
+     
+    <ui:composition template="../configuracao/template.xhtml">
+            
+	<ui:define name="titulo">
+	.:: O Mochileiro - Home ::.
+	</ui:define>
+	
+	<ui:define name="estilos">
+    	<link href="#{facesContext.externalContext.requestContextPath}/css/home.css" rel="stylesheet" type="text/css" /> 
+	</ui:define>
+	
+	 <ui:define name="busca_superior">
+				<ui:include src="/configuracao/busca_input.xhtml"></ui:include>
+	 </ui:define>
+
+	<ui:define name="conteúdo">
+		<ui:include src="/configuracao/menu_lista.xhtml"></ui:include>
+		
+		<div id="dados">
+		<div id="objetivo">		
+		<h3>O Mochileiro</h3>
+		<strong>Objetivos</strong>
+			<p>
+				O MOCHILEIRO consiste em um aplicativo que oferece um guia de atividades de negócios, culturais ou de lazer na cidade 
+				de São Paulo.</p>
+				<br />
+				<p>Permite o cadastro, pesquisa e classificação das atividades, sendo uma ferramenta de auxílio a viajantes e empresas
+				 interessadas em eventos ou serviços turísticos na cidade.
+			</p>			
+		</div>
+		</div>
+	</ui:define>
+	
+	</ui:composition>
+        
+    </body>
+</html>
+	

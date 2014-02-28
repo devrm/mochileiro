@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+	  lang="pt-br">
+
+<head>
+	
+	<title><ui:insert name="titulo"></ui:insert></title> <!-- define o nome na barra do navegador -->
+	<link href="#{facesContext.externalContext.requestContextPath}/css/layout.css" rel="stylesheet" type="text/css" />
+	<ui:insert name="estilos"></ui:insert> <!-- define uma nova entrada de folha de estilos (css) -->
+	
+	<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAM3tYiYBfOKmhuRiSYzXlxRSolT9dJHhqkNrIgFq9Znypr0iOlhQeBdhVvDQuPJy4hxdG187GklHLbA" type="text/javascript"></script> 
+	<script language="javascript" src="../configuracao/eventosGmaps.js"></script>
+	
+	
+</head>
+
+  <body onload="initialize()" onunload="GUnload()">
+	
+		<div id="borda">
+			<div id="geral">
+			
+				<div id="topo"> <!-- Div de controle da sessão topo da página  -->
+					<h1>O Mochileiro</h1>
+						
+						<div id="lista_superior">
+							<h2 id="h2_linha27">Encontre:</h2>
+								<ul>
+									<li>Hotéis</li>
+									<li>Restaurantes</li>
+									<li>Shows</li>
+									<li>Feiras e Eventos</li>
+								</ul>
+							</div>	
+						
+					
+						<div id="menu_superior">
+							<h:form id="menuSuperiorTemplate">							
+							<!-- Div de controle do menu superior  da página  -->
+							<ul id="linha40">
+								<li><a href="#{facesContext.externalContext.requestContextPath}/home/index.xhtml" title="Início">Home</a></li>
+								<li><h:commandLink id="loga" action="#{Autenticacao.validaSessaoUsuario}" title="Logar no Sistema" value="Login"/></li>
+								<li><h:commandLink id="painelUser" action="#{Autenticacao.validaSessaoUsuario}" title="Painel" value="Painel" /></li>
+								<li><a href="#" title="Equipe">Sobre Nós</a></li>
+								<li><p>Na cidade de São Paulo</p></li>
+							</ul>
+						</h:form>						
+					</div> <!-- Fim Menu-Superior -->
+			
+				</div> <!-- Fim topo -->
+				
+					<ui:insert name="busca_superior"></ui:insert> <!-- define uma região editável do template -->
+			
+			<div id="corpo">
+				
+					<ui:insert name="conteúdo"></ui:insert> <!-- define uma região editável no corpo do template -->
+			</div> 
+
+			<div id="rodape">
+
+					O Mochileiro | 8ºB Sistemas de Informação | PFC 2006 - 2010 | Grupo P807
+				
+			</div>
+				
+		</div>	
+	</div>
+			
+		</body>
+</html>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+	  lang="pt-br">
+	
+    <body>
+        
+	<ui:composition template="../configuracao/template.xhtml">
+            
+	<ui:define name="titulo">
+	.:: O Mochileiro - Lista de Atividades Empresas ::.
+	</ui:define>
+	
+	<ui:define name="estilos">
+    	<link href="../css/lista.css" rel="stylesheet" type="text/css" />    
+	</ui:define>
+	
+	<ui:define name="conteúdo">
+	 <div id="conteudo">
+	<h:form prependId="false">
+	 
+		<h2>Lista de Atividades - <span><label jsfc="h:outputLabel"  id="linha26" value="#{Empresa.empresa.nomeEmpresa}"/></span></h2>
+		
+		<div id="filtro">		
+			<p><strong>Ordenar por:</strong>
+					
+			<a jsfc="h:commandLink" id="linha31" action="#{listaEmpresa.ordenaCat}" >Categoria</a>|  
+			<a jsfc="h:commandLink" id="linha32" name="ordena" action="#{listaEmpresa.ordenaCad}" >Cadastro</a>
+			</p>
+		</div>
+						
+		<div id="atividade">
+				
+		    <table jsfc="h:dataTable" id="tabela38" binding="#{listaEmpresa.p.dataTable}" 
+		    value="#{listaEmpresa.model}" var="itemLista" rows="#{listaEmpresa.p.maxPorPagina}">	        	
+	        	
+		        <td jsfc="h:column" id="linha39">
+				<div id="lista">
+						<ul>
+							<li><strong><h:outputText id="linha42" value="#{itemLista.dataCadastro.dia}"></h:outputText></strong></li>
+							<li><span><h:outputText   id="linha43" value="#{itemLista.dataCadastro.mes}"></h:outputText></span></li>
+							<li><small><h:outputText  id="linha44" value="#{itemLista.dataCadastro.ano}"></h:outputText></small></li>
+						</ul>
+						<img  jsfc="h:graphicImage" id="linha46"  width="96" height="66"  value="../imagens/#{itemLista.imagem}" />
+
+						<h3><h:outputText id="linha48" value="#{itemLista.nomeLista}"></h:outputText>  <small><h:outputText value="#{itemLista.categoria.nome}"></h:outputText></small></h3>
+				
+						<p class="descricao"><h:outputText id="linha49" value="#{itemLista.descricaoLista}"></h:outputText>... </p>
+				
+						<h:commandLink  id="linha50" action="#{visualizaAtividade.carregaAtividade}" value="Visualizar" title="Visualizar informações completas" class="visualizar">
+ 						<!-- envio objeto para página de visualização completa -->
+ 						<f:setPropertyActionListener id="linha54" target="#{visualizaAtividade.atividade}" value="#{itemLista}" /> 
+ 						</h:commandLink> 
+				
+					</div>
+				</td>
+				</table >
+				<div id="linha60" class="paginacao">
+					<h:commandLink id="linha61" action="#{listaEmpresa.p.primeiraPagina}" 
+	                value="Primeira" rendered="#{listaEmpresa.p.dataTable.first!=0}" />
+	                 
+					<h:commandLink id="linha64" value="|" rendered="#{listaEmpresa.p.dataTable.first!=0}" />
+	                 
+	                <h:commandLink id="linha66" value="Anterior" action="#{listaEmpresa.p.paginaAnterior}"
+	                rendered="#{listaEmpresa.p.dataTable.first != 0}" />
+					
+					<h:commandLink id="linha69" value="|" 
+  	                rendered="#{listaEmpresa.p.dataTable.rowCount > listaEmpresa.p.dataTable.first + listaEmpresa.p.dataTable.rows and
+  	                (listaEmpresa.p.dataTable.first != 0)}" />
+                	                
+	                <h:commandLink id="linha73" value="Próxima" action="#{listaEmpresa.p.proximaPagina}"
+	                rendered="#{listaEmpresa.p.dataTable.rowCount > listaEmpresa.p.dataTable.first + listaEmpresa.p.dataTable.rows}" />
+	              	                
+	                <h:commandLink id="linha76" value="|" rendered="#{listaEmpresa.p.dataTable.rowCount > listaEmpresa.p.dataTable.first + listaEmpresa.p.dataTable.rows}" />
+	                    
+	                <h:commandLink id="linha78" value="Última" action="#{listaEmpresa.p.ultimaPagina}"
+	                rendered="#{listaEmpresa.p.dataTable.rowCount > listaEmpresa.p.dataTable.first + listaEmpresa.p.dataTable.rows}" />
+				</div>
+ 				
+			</div><!-- fim atividade -->
+		</h:form>
+			
+		</div><!-- fim conteúdo -->
+	</ui:define>
+	
+	</ui:composition>
+        
+    </body>
+</html>
+	

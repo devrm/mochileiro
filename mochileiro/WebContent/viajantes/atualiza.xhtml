@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+	  lang="pt-br">
+    		
+    <body>
+        
+	<ui:composition template="../configuracao/template.xhtml">
+            
+	<ui:define name="titulo">
+		.:: O Mochileiro - Atualização de Cadastro Viajantes ::.	
+	</ui:define>
+	
+	 <ui:define name="estilos">
+		<link href="../css/formulario.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="../css/menu_horizontal.css" />
+			
+		<style>
+       	.somenteLeitura{
+			background-color: #f2f6Eb;
+			color: gray;
+		}
+     </style>  
+		
+		
+	 </ui:define>
+
+	 <ui:define name="busca_superior">
+				<ui:include src="../configuracao/busca_input.xhtml"></ui:include>
+	 </ui:define>
+
+	<ui:define name="conteúdo">
+
+	<div id="menu-lista">
+		<ui:include src="../configuracao/operacoes_viajante.xhtml"></ui:include>
+		<ul><li><a href="painel.xhtml">Ir para Painel</a></li></ul>
+	</div>
+	
+	 <div id="formulario">
+		<h2>Atualização de Cadastro <span /><h:outputText value="#{CadViajante.viajante.nome}"></h:outputText></h2> 
+		<ui:include src="../configuracao/formViajante.xhtml"></ui:include>
+	</div>
+		
+	</ui:define>
+
+</ui:composition>
+        
+    </body>
+</html>
+	

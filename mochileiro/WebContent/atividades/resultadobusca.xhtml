@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+	  lang="pt-br">
+
+    <body>
+        
+	<ui:composition template="../configuracao/template.xhtml">
+            
+	<ui:define name="titulo">
+	.:: O Mochileiro - Home ::.
+	</ui:define>
+	
+	<ui:define name="estilos">
+    	<link href="../css/lista.css" rel="stylesheet" type="text/css" />  
+    	
+    		<style>
+	
+	#lista{
+	border: 1px solid silver;
+	}
+	
+	.resBusca{
+	font-size: 17px;
+	font-weight: bold;
+	}
+	
+	.paginacao a{
+	border: 1px solid white;
+	}
+	
+	.msg{
+		color: gray;
+		font-style: italic;
+		text-transform: capitalize;
+		font-weight: bold;
+		margin: auto;
+		text-align: center;
+	}
+    	
+    </style>	  
+	</ui:define>
+	
+	<ui:define name="conteúdo">
+	
+					<h:form rendered="#{not empty buscaAtividade.listaAtividadeFormatada}" prependId="false">
+
+		
+			<div id="filtro">		
+				<p><small class="resBusca">Resultado Busca</small></p>					
+			</div>
+				
+				<div id="resultadoBusca">
+					<h:dataTable id="tabela_lin8" value="#{buscaAtividade.listaAtividadeFormatada}" binding="#{buscaAtividade.paginacao.dataTable}" var="itemLista" 
+						rows="#{buscaAtividade.paginacao.maxPorPagina}" rendered="#{not empty buscaAtividade.listaAtividadeFormatada}">
+				        <td jsfc="h:column" id="linha39">
+								<div id="lista">
+								<ul>
+									<li><strong><h:outputText id="linha42" value="#{itemLista.dataCadastro.dia}"></h:outputText></strong></li>
+									<li><span><h:outputText   id="linha43" value="#{itemLista.dataCadastro.mes}"></h:outputText></span></li>
+									<li><small><h:outputText  id="linha44" value="#{itemLista.dataCadastro.ano}"></h:outputText></small></li>
+								</ul>
+								<img  jsfc="h:graphicImage" id="linha46"  width="96" height="66"  value="../imagens/#{itemLista.imagem}" />
+								<h3><h:outputText id="linha48" value="#{itemLista.nomeLista}"></h:outputText>  <small><h:outputText value="#{itemLista.categoria.nome}"></h:outputText></small></h3>
+				
+								<p><h:outputText id="lin49" value="#{itemLista.descricaoLista}"></h:outputText>... 
+								<strong>Qualificações</strong>
+								   Positivas: <h:outputText value="#{itemLista.qualificacoesPositivas}"></h:outputText>
+								<small>|</small>
+								Negativas: <h:outputText value="#{itemLista.qualificacoesNegativas}"></h:outputText>
+								</p>
+								<h:commandLink  id="linha50" action="#{visualizaAtividade.carregaAtividade}" value="Visualizar" title="Visualizar informações completas" class="visualizar">
+ 										<!-- envio objeto para página de visualização completa -->
+ 										<f:setPropertyActionListener id="lin54" target="#{visualizaAtividade.atividade}" value="#{itemLista}" /> 
+ 								</h:commandLink> 
+							</div>
+							</td>
+					</h:dataTable>
+					
+					<div id="linha60" class="paginacao">
+						<h:commandLink id="linha61" action="#{buscaAtividade.paginacao.primeiraPagina}" 
+	          	      value="Primeira" rendered="#{buscaAtividade.paginacao.dataTable.first != 0}" />
+	                 
+						<h:commandLink id="linha64" value="|" rendered="#{buscaAtividade.paginacao.dataTable.first != 0}" />
+	                 
+	          <h:commandLink id="linha66" value="Anterior" action="#{buscaAtividade.paginacao.paginaAnterior}"
+	                rendered="#{buscaAtividade.paginacao.dataTable.first != 0}" />
+					
+						<h:commandLink id="linha69" value="|" 
+  	                rendered="#{buscaAtividade.paginacao.dataTable.rowCount > buscaAtividade.paginacao.dataTable.first + buscaAtividade.paginacao.dataTable.rows and
+  	                (buscaAtividade.paginacao.dataTable.first != 0)}" />
+                	                
+	                <h:commandLink id="linha73" value="Próxima" action="#{buscaAtividade.paginacao.proximaPagina}"
+	                rendered="#{buscaAtividade.paginacao.dataTable.rowCount > buscaAtividade.paginacao.dataTable.first + buscaAtividade.paginacao.dataTable.rows}" />
+	              	                
+	                <h:commandLink id="linha76" value="|" rendered="#{buscaAtividade.paginacao.dataTable.rowCount > buscaAtividade.paginacao.dataTable.first + buscaAtividade.paginacao.dataTable.rows}" />
+	                    
+	                <h:commandLink id="linha78" value="Última" action="#{buscaAtividade.paginacao.ultimaPagina}"
+	                rendered="#{buscaAtividade.paginacao.dataTable.rowCount > buscaAtividade.paginacao.dataTable.first + buscaAtividade.paginacao.dataTable.rows}" />
+					</div>
+				</div>
+				</h:form>				
+				<h:outputText id="busca"></h:outputText>				
+				<p class="msg"><h:message for="busca" /></p>		
+	</ui:define>
+	
+	</ui:composition>
+        
+    </body>
+</html>
+	

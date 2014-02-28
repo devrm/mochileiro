@@ -1,0 +1,109 @@
+	#conteudo {
+		width: 707px;
+		float: right;
+		margin-bottom: 10px;
+	}
+	
+	#cadastrado,#cadastrar {
+		font-family: arial;
+		width: 339px;
+		border: 1px dotted gray;
+		padding: 0 5px 1px 5px;
+		float: right;
+		height: 210px;
+	}
+	
+	#cadastrado {
+		margin-right: 5px;
+		float: left;
+	}
+	
+	#cadastrado h3,#cadastrar h3 {
+		background-color: #c0d2e7;
+		padding-left: 5px;
+		margin-top: 5px;
+		border: 1px solid gray;
+	}
+	
+	#cadastrado h4,#cadastrar h4 {
+		padding-bottom: 1px;
+		border-bottom: 1px dotted gray;
+		margin-top: 12px;
+	}
+	
+	#cadastrado h4 {
+		clear: both;
+		margin-top: 51px;
+		border-bottom: none;
+		border-top: 1px dotted gray;
+		padding-top: 2px;
+	}
+	
+	#conteudo strong {
+		text-align: left;
+		color: black;
+	}
+	
+	#cadastrado p,#cadastrar p {
+		text-align: justify;
+		font-size: 14px;
+		color: gray;
+		line-height: 140%;
+	}
+	
+	#cadastrado p {
+		margin-top: 10px;
+		text-align: center;
+	}
+	
+	#conteudo #autenticacao {
+		margin-top: 10px;
+	}
+	
+	#conteudo #autenticacao label {
+		margin: 5px;
+		font-weight: bold;
+	}
+	
+	#conteudo #autenticacao input {
+		width: 75%;
+		margin: 15px 5px 0 5px;
+		border: 1px solid #a5a7aa;
+		border-left: 1px solid gray;
+		border-top: 1px solid gray;
+		padding: 1px;
+	}
+	
+	#cadastrado #autenticacao .botao {
+		width: 50px;
+		float: right;
+		margin-right: 14px;
+		margin-top: 20px;
+		padding: 0;
+	}
+	
+	#cadastrado #msg {
+		height: 54px;
+	}
+	
+	#cadastrar a {
+		text-align: right;
+		color: orange;
+		text-decoration: none;
+	}
+	
+	#cadastrar a:hover {
+		text-decoration: underline;
+		font-weight: bold;
+	}
+	
+	.msgErro,.msgErro2 {
+		color: red;
+		font-weight: bold;
+		margin: 2px 2px;
+		width: 500px;
+	}
+	
+	.msgErro2 {
+		float: left;
+	}

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core" lang="pt-br">
+
+
+<body>
+
+<ui:composition template="../configuracao/template.xhtml">
+
+	<ui:define name="titulo">
+	.:: O Mochileiro - Visualizar Atividade ::.
+	</ui:define>
+
+	<ui:define name="estilos">
+		<link href="../css/atividade.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="../configuracao/eventosJavascript.js"></script>				
+	</ui:define>
+
+	
+	<ui:define name="conteúdo">
+		
+		<div id="colunaEsquerda"><h:graphicImage width="225" height="143" value="../imagens/#{visualizaAtividade.atividade.imagem}" />
+
+		<h4>parceiro</h4>
+			<div id="parceiro">
+				<h:form id="parceria" rendered="#{visualizaAtividade.atividade.parceiro != null}">
+					<p>Visite também:</p>
+					<p><strong><h:outputText value="#{visualizaAtividade.atividade.parceiro.nomeLista}" /></strong></p>
+					<p class="descricaoParc"><h:outputText value="#{visualizaAtividade.atividade.parceiro.descricaoLista}" />...</p>
+					<p><strong>categoria:</strong><span id="aszx"><h:outputText value="#{visualizaAtividade.atividade.parceiro.categoria.nome}" />
+					</span></p>
+					<p><strong>recomendações:</strong><span id="asz123"><h:outputText value="#{visualizaAtividade.recomendacoesParceiro}" /></span></p>
+					<h:graphicImage width="112" height="72" value="../imagens/#{visualizaAtividade.atividade.parceiro.imagem}" />
+				</h:form>
+					<p class="semParceria"><h:message for="parceria"></h:message></p>				
+			</div>
+				<h:form>
+		<h5><strong><h:commandLink value="visualizar" action="#{visualizaAtividade.trocaEntidade}"
+					rendered="#{visualizaAtividade.atividade.parceiro != null}" title="visualizar informações parceiro">
+					</h:commandLink>
+		</strong></h5>
+		</h:form>
+
+		<div id="infoFuncionamento">
+		<h4>Funcionamento</h4>
+		<p><strong>Horario:</strong> 
+			<h:outputText value="#{visualizaAtividade.atividade.dataInicial.horaFormatada}"></h:outputText>
+			<small/> <h:outputText value="#{visualizaAtividade.atividade.dataFinal.horaFormatada}"></h:outputText></p>
+		<p><strong>Data:</strong> <h:outputText
+			value="#{visualizaAtividade.atividade.dataInicial.dataFormatada}"></h:outputText>
+		<h:outputText id="dataFim"
+			value="#{visualizaAtividade.atividade.dataFinal.dataFormatada}"></h:outputText>
+		</p>
+		<p><strong>Dias:</strong> 
+			<h:outputText value="#{visualizaAtividade.atividade.dataInicial.diaSemana}"></h:outputText>
+			<small/><h:outputText value="#{visualizaAtividade.atividade.dataFinal.diaSemana}"></h:outputText>
+		</p>
+		</div>
+		</div><!-- fim coluna esquerda -->
+		
+		<div id="colunaDireita">
+		<h2><h:outputText
+			value="#{visualizaAtividade.atividade.nomeLista}"></h:outputText></h2>
+
+		<h3><h:outputText
+			value="#{visualizaAtividade.atividade.categoria.nome}"></h:outputText></h3>
+		
+		<div id="alerta">
+			<p><h:message for="dataFim"></h:message></p>
+		</div>
+
+		<p><strong>Recomendações: </strong> | 
+		   Positivas:<span id="aszz"></span><h:outputText value="#{visualizaAtividade.atividade.qualificacoesPositivas}" /> |
+		   Negativas:<span id="qaszx"></span><h:outputText value="#{visualizaAtividade.atividade.qualificacoesNegativas}" /> |
+		<strong>Custo Médio: <small/></strong><h:outputText value="#{visualizaAtividade.atividade.preco}">
+			<f:convertNumber locale="pt_BR"/>
+		</h:outputText>
+		</p>
+		
+
+
+		<div id="descricao">
+		<p><h:outputText escape="false" value="#{visualizaAtividade.atividade.descricao}" /></p>
+		</div>
+
+		<div id="endereco">
+		<p><strong>Endereço: <span></span> <h:outputText
+			value="#{visualizaAtividade.atividade.endereco.logradouro}" /><span>,
+		  </span> <h:outputText value="#{visualizaAtividade.atividade.endereco.numero}" /><span>
+		- </span> <h:outputText value="#{visualizaAtividade.atividade.endereco.bairro}" /><span>
+		| </span> <h:outputText value="#{visualizaAtividade.atividade.endereco.cep}" /> </strong></p>
+		</div>
+		
+			<h:form id="acao" >
+					<ul>
+						<li id="botaoExc"><strong><h:commandLink action="#{visualizaAtividade.excluiAtividade}" onclick="return operacao(4);" 
+									rendered="#{visualizaAtividade.empresaResponsavel}">X Excluir Atividade</h:commandLink></strong></li>
+						
+						<li id="botaoAtu">
+							<strong>
+							
+								<h:commandLink action="ATUALIZAATIVIDADE" rendered="#{visualizaAtividade.empresaResponsavel}" 
+																		  value="# Atualizar Atividade">
+																		  
+									<f:param value="#{visualizaAtividade.atividade.codigoAtividade}" name="id" />
+								</h:commandLink>
+								
+							</strong>
+						</li>
+						
+						<li id="botaoPar">
+						 	<!-- exibe somente para empresas que não sejam responsáveis pela atividade e possuam atividades cadastradas -->
+							<strong><!-- direciona a empresa para a sua lista -->
+									<h:commandLink action="SOLICITAPARCERIA" value="$ Solicitar Parceria" rendered="#{not visualizaAtividade.empresaResponsavel and 
+																											 visualizaAtividade.liberabotaoParceria and Parceria.possuiAtividades}">
+									<!-- envia a atividade visualizada para o MBParceria -->																		 
+									<f:setPropertyActionListener value="#{visualizaAtividade.atividade}" target="#{Parceria.parceiroSolicitacao}" />
+																												 
+									</h:commandLink>
+							</strong>
+						</li>
+						
+						
+						<li id="botaoFav">
+							<strong><!-- somente exibe aos viajantes que não possuam a atividade em sua lista de favoritos -->
+								<h:commandLink action="#{Viajante.adicionaFavoritos}" rendered="#{visualizaAtividade.exibeBotaoFavoritos}" >+ Adicionar aos Favoritos
+									<f:param value="#{visualizaAtividade.atividade.codigoAtividade}" name="id" />
+								</h:commandLink>
+							 </strong>
+						</li>
+					</ul>
+				</h:form>
+			
+			
+			<div id="coments">
+			<h:form>
+			<h4> <strong>COMENTÁRIOS</strong>
+				
+				<div id="linkComentario">
+				
+    			<h:commandLink value="Comentar" action="COMENTAR" rendered="#{visualizaAtividade.exibeLinkComentarios}"></h:commandLink>
+				
+	
+						<strong><h:outputText value="|" rendered="#{visualizaAtividade.numComentarios > 0}"/></strong>
+						
+						<h:commandLink rendered="#{visualizaAtividade.numComentarios > 0}"  
+									   action="#{visualizaAtividade.exibeComentarios}"
+									   title="Ver Todos os comentários para essa atividade" value="Ver Todos" />
+									   									   
+					</div>
+				</h4> 
+				</h:form>
+					
+				<div id="comentarios">					
+					<ui:repeat id="tbcomentarios" value="#{visualizaAtividade.atividade.listaComentarios}" var="itemLista" size="1">
+						<strong><h:outputText value="#{itemLista.nickViajante}" /></strong>
+						
+						<p><h:outputText value="#{itemLista.comentarioLista}..." />	<br />	</p>
+						
+						<strong class="recomedacao">Opinião sobre a atividade: </strong><span id="qwe"><h:outputText 
+																				value="#{itemLista.notaExtenso}" /></span><br />
+					</ui:repeat>
+						
+					<p class="semParceria"><h:message for="tbcomentarios"></h:message></p>
+					
+				</div>
+
+			</div>
+			
+		</div><!-- fim colunaDireita -->		
+
+	</ui:define>
+
+</ui:composition>
+
+</body>
+</html>

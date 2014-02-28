@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+	  lang="pt-br">
+
+	
+    <body>
+        
+	<ui:composition template="../configuracao/template.xhtml">
+            
+	<ui:define name="titulo">
+	.:: O Mochileiro - Inserir Comentário ::.
+	</ui:define>
+		
+	<ui:define name="estilos">
+    	<link href="../css/comentar.css" rel="stylesheet" type="text/css" />
+	</ui:define>
+	
+	<ui:define name="conteúdo">
+	
+	<div id="coments">
+	<h3>Comente essa atividade</h3>	
+	<h:form id="comentar" prependId="false">
+		<label class="rot"> O que você achou dessa atividade? </label>
+		<small><h:outputText id="dunha" value="#{visualizaAtividade.atividade.nomeAtividade}" /></small>
+		<br />
+		<label class="rotulo">Recomendação: </label>
+		 
+		<h:selectOneRadio value="#{visualizaAtividade.classificacao.nota}">
+			<f:selectItem  itemLabel="Boa"  itemValue="true" styleClass="rotulo"/>
+			<f:selectItem  itemLabel="Ruim" itemValue="false" styleClass="rotulo"/>
+		</h:selectOneRadio>
+
+		<label class="rot">*Descreva sua opinião...(máximo de 499 caracteres) <br />
+		<textarea jsfc="h:inputTextarea" id="descricao" wrap="physical" value="#{visualizaAtividade.classificacao.comentarioViajante}" 
+										required="true" requiredMessage="*Campo Obrigatório">
+			</textarea></label>
+			<small id="desc"><h:message for="descricao" id="descri"></h:message></small>
+		<h:commandButton action="#{visualizaAtividade.registrarComentario}" value="Inserir comentário" styleClass="float: right;"/>
+	</h:form>
+	</div>			
+		
+	</ui:define>
+	
+	</ui:composition>
+        
+    </body>
+</html>
+	

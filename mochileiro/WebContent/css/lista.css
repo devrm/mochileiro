@@ -1,0 +1,144 @@
+	* {
+		padding: 0;
+		margin: 0;
+		text-decoration: none;
+		list-style: none;
+		border: none;
+	}
+	
+	#filtro {
+		text-align: right;
+		margin-bottom: 10px;
+		background-color: #86a3f1;
+		color: white;
+		padding: 2px 0 2px 0;
+	}
+	
+	#filtro strong,#filtro p {
+		margin: 5px;
+	}
+	
+	#filtro strong {
+		font-size: 16px;
+	}
+	
+	#filtro a {
+		color: white;
+		text-decoration: none;
+		text-align: center;
+		width: 100px;
+		margin: 5px;
+	}
+	
+	#filtro a:hover {
+		text-decoration: underline;
+	}
+	
+	#conteudo h2 {
+		border-bottom: 1px dotted black;
+		margin-bottom: 10px;
+		padding-bottom: 2px;
+	}
+	
+	#conteudo h2 p {
+		font-size: 15px;
+		font-weight: normal;
+	}
+	
+	#conteudo h2 span {
+		color: gray;
+		font-style: italic;
+		text-transform: capitalize;
+	}
+	
+	#atividade {
+		background-color: #f1f2f7;
+		width: 100%;
+	}
+	
+	#lista {
+		margin: 5px;
+		background-color: white;
+		height: 68px;
+		width: 820px;
+		padding: 2px;
+	}
+	
+	#lista .descricao{
+		width:770px;
+	}
+	
+	#lista ul {
+		background-color: orange;
+		float: left;
+		display: block;
+		width: 33px;
+		text-align: center;
+		height: 67px;
+	}
+	
+	#lista ul li {
+		margin: 0 2px;
+		font-weight: bold;
+		color: white;
+	}
+	
+	#lista ul li strong {
+		font-size: 25px;
+	}
+	
+	#lista img {
+		border: 1px solid #f1f2f7;
+		float: left;
+		margin: 0 5px 0 5px;
+	}
+	
+	#lista h3 {
+		color: green;
+	}
+	
+	#lista h3 small {
+		float: right;
+		color: orange;
+		margin-right: 5px;
+		margin-top: 3px;
+	}
+	
+	#lista p {
+		text-align: justify;
+		color: gray;
+		width: 815px;
+		height: auto;
+	}
+	
+	#lista a {
+		text-decoration: none;
+		font-weight: bold;
+		text-align: right;
+		float: right;
+		margin: -12px 4px;
+		border-bottom: 1px solid blue;
+		border-right: 1px solid blue;
+		background-color: #3a75f7;
+		color: white;
+		font-size: 13px;
+		padding: 2px;
+	}
+	
+	#lista a:hover {
+		border-bottom: 1px solid #3a75f7;
+		border-right: 1px solid #3a75f7;
+		background-color: blue;
+	}
+	
+	#recomendacao {
+		text-align: right;
+		margin: -5px 5px;
+	}
+	
+	#recomendacao strong {
+		margin-right: 5px;
+		color: #3a75f7;
+	}
+	
+	

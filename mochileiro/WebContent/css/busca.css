@@ -1,0 +1,139 @@
+	.info {
+		border-bottom: 1px dotted gray;
+		margin-bottom: 5px;
+		padding-bottom: 2px;
+	}
+
+
+#corpo #busca {
+		border: 1px solid gray;
+		width: 700px;
+		float: left;
+	}
+	
+	#corpo label {
+		width: 100%;
+		margin-left: 10px;
+		font-weight: bold;
+	}
+	
+	#corpo input {
+		padding: 1px;
+	}
+	
+	#corpo input,#corpo select {
+		margin-left: 5px;
+	}
+	
+	#corpo select {
+		width: 120px;
+	}
+	
+	#corpo .selecao {
+		margin-left: 16px;
+		margin-left: 11px\9  /*hack ie8 */
+	}
+	
+	#corpo #endereco {
+		margin: 0 5px;
+	}
+	
+	#corpo .nome input {
+		width: 307px;
+	}
+	
+	#endereco .logradouro {
+		margin-left: 54px;
+	}
+	
+	#endereco .logradouro input {
+		width: 307px;
+	}
+	
+	#endereco .numero {
+		margin-left: 38px;
+	}
+	
+	#endereco .numero input,#endereco .cep input {
+		width: 65px;
+	}
+	
+	#endereco .complemento {
+		margin-left: 38px;
+	}
+	
+	#endereco .complemento input,#endereco .bairro input {
+		width: 184px;
+	}
+	
+	#endereco .bairro {
+		margin-left: 10px;
+	}
+	
+	#endereco .cep {
+		margin-left: 105px;
+	}
+	
+	#endereco .cep input {
+		width: 58px;
+		text-align: center;
+	}
+	
+ #datas input{
+		width: 23px;
+		margin-right: 3px;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+	
+	#datas .ano{
+		width: 40px;
+	}
+	
+	
+	
+	#msg {
+		margin-top: 15px;
+		text-align: center;
+		font-weight: bold;
+		color: red;
+	}
+	
+	#informe {
+		text-align: center;
+		margin: 10px 5px 5px 130px;
+		width: 700px;
+		text-align: center;
+	}
+	
+	#descricao strong {
+		color: green;
+	}
+	
+	#descricao p {
+		margin-bottom: 5px;
+		padding: 3px;
+		font-weight: bold;
+		text-align: justify;
+	}
+	
+	#descricao #mensagem {
+		text-transform: lowercase;
+	}
+	
+	.firula {
+		display: none;
+	}
+	
+	table {
+		width: 90%;
+		float: right;
+	}
+	
+	
+	/** mensagens de erro **/
+	
+	.erroesquerda{
+		color: red;
+	}
+	

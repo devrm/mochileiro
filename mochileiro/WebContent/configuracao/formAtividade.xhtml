@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:tr="http://myfaces.apache.org/trinidad">
+
+
+<body>
+		<div id="informe">
+				
+				<div id="descricao" style="display:none;">
+					<p><strong>*Descrição atividade:</strong> <em id="mensagem" /></p>
+				</div>				
+		</div>	
+			
+		<form jsfc="h:form" id="cadatividade" enctype="multipart/form-data" >
+
+		
+			<fieldset class="exibicao">
+
+				<legend>Informações de Exibição</legend>
+				<label class="combo">*Tipo de Atividade  						
+										<select jsfc="h:selectOneMenu" id="tipo_atividade" value="#{CadAtividade.atividade.categoria.codigo}" 
+					onchange="setColecao(${CadAtividade.jsArray}, this.value)">
+						<option jsfc="f:selectItems" value="#{CadAtividade.listaSelect}" />
+					</select>					 
+					<small class="errocombo"><h:message for="tipo_atividade"></h:message></small>
+				</label>	
+		
+				<label class="nome">*Nome da Atividade <input type="text" jsfc="h:inputText" id="nome_atv" value="#{CadAtividade.atividade.nomeAtividade}"  maxlength="60" required="true" requiredMessage="Campo Obrigatório" /></label>
+				<small class="erronome"><h:message for="nome_atv"></h:message></small>
+									
+				<label>*Descrição <br />
+				<textarea jsfc="h:inputTextarea" id="descricao" wrap="physical" value="#{CadAtividade.atividade.descricao}"   required="true" requiredMessage="Campo Obrigatório">
+				</textarea></label><br />
+				<small class="erronome"><h:message for="descricao"></h:message></small>
+
+				<div id="preco">
+					<label class="valor">*Custo Médio R$: <h:inputText id="preco" value="#{CadAtividade.atividade.preco}" maxlength="10" >
+						<f:validator validatorId="ValidaCampoFormulario" />
+					</h:inputText>
+					</label>
+				    
+				  <label class="chkbox">
+				  	  <input type="checkbox"  jsfc="h:selectBooleanCheckbox"  id="gratis" value="#{CadAtividade.atividade.semCusto}" onclick="desabilitaPreco()"/>
+				    Atividade sem Custo</label>	
+				    
+					<small><h:message for="preco"></h:message></small>
+				</div>
+				
+			</fieldset>
+			
+			<fieldset class="localizacao">
+			
+				<legend>Informações sobre Localização</legend>
+				
+				<label>*Logradouro<br />
+					<input type="text" jsfc="h:inputText" id="logradouro" value="#{CadAtividade.atividade.endereco.logradouro}"  maxlength="60" required="true" requiredMessage="Campo Obrigatório" immediate="false"/>
+					<small><h:message for="logradouro"></h:message></small>
+				</label>
+				
+					<label class="num">*Número<br />
+						<input type="text" jsfc="h:inputText" id="numero" value="#{CadAtividade.atividade.endereco.numero}" maxlength="9" required="true" requiredMessage="Campo Obrigatório" />
+						<small class="erroesquerda"><h:message for="numero"></h:message></small>
+					</label>					
+					
+					<label class="com">Complemento<br /> 
+						<input type="text" jsfc="h:inputText" id="complemento" value="#{CadAtividade.atividade.endereco.complemento}"  maxlength="50" />
+						<small></small>
+					</label>
+					
+				<label class="num">*CEP<br /> 
+					<h:inputText id="cep" value="#{CadAtividade.atividade.endereco.cep}" maxlength="8" size="8" required="true" requiredMessage="Campo Obrigatório" ><f:validator validatorId="ValidaCampoFormulario" /></h:inputText>
+					<small class="erroesquerda"><h:message for="cep"></h:message></small>
+				</label>
+				
+				<label class="com">*Bairro<br /> 
+					<input type="text" jsfc="h:inputText" id="bairro" value="#{CadAtividade.atividade.endereco.bairro}"  maxlength="50" required="true" requiredMessage="Campo Obrigatório" />
+					<small><h:message for="logradouro"></h:message></small>
+				</label>
+										
+			</fieldset>
+			<br />
+			
+			<fieldset class="periodo">
+				<legend>Informações de Funcionamento</legend>
+			
+				<div id="horario">
+				
+					<span class="rotulo">Horário de Funcionamento</span><br />
+					
+					<span id="idz">Das</span> 								
+					<input type="text" jsfc="h:inputText" id="horafuncionamento"  value="#{CadAtividade.atividade.dataInicial.horas}" maxlength="2"  /> 
+					 <span id="idc"> :</span>								
+					<input type="text" jsfc="h:inputText" id="minutoinicio"  value="#{CadAtividade.atividade.dataInicial.minutos}" maxlength="2" />
+					
+					<span id="idc">até</span> 								
+					<input type="text" jsfc="h:inputText" id="horafim"  value="#{CadAtividade.atividade.dataFinal.horas}" maxlength="2"  /> 
+					 <span id="zax"> :</span>								
+					<input type="text" jsfc="h:inputText" id="minutofim"  value="#{CadAtividade.atividade.dataFinal.minutos}" maxlength="2" />
+					<small><h:message for="horafuncionamento"></h:message></small>						
+				
+				</div>
+				
+				<div id="dias">
+					
+					<span class="rotulo">Dias da Semana</span><br />
+					<select jsfc="h:selectOneMenu" id="semana_inicio" value="#{CadAtividade.atividade.dataInicial.diaSemana}" >
+						<option jsfc="f:selectItem"	itemValue=""   		 itemLabel="" ></option>	
+						<option jsfc="f:selectItem"	itemValue="Domingo"  itemLabel="Domingo" ></option>	
+						<option jsfc="f:selectItem"	itemValue="Segunda"  itemLabel="Segunda" ></option>
+						<option jsfc="f:selectItem"	itemValue="Terça"    itemLabel="Terça" ></option>	
+						<option jsfc="f:selectItem"	itemValue="Quarta"   itemLabel="Quarta" ></option>
+						<option jsfc="f:selectItem"	itemValue="Quinta"   itemLabel="Quinta" ></option>	
+						<option jsfc="f:selectItem"	itemValue="Sexta"    itemLabel="Sexta" ></option>
+						<option jsfc="f:selectItem"	itemValue="Sábado"   itemLabel="Sábado" ></option>	
+					</select>							
+					<span id="ida">à</span>								
+					<select jsfc="h:selectOneMenu" id="semana_fim" value="#{CadAtividade.atividade.dataFinal.diaSemana}" >
+						<option jsfc="f:selectItem"	itemValue=""   		  itemLabel="" ></option>	
+						<option jsfc="f:selectItem"	itemValue="Domingo"   itemLabel="Domingo" ></option>	
+						<option jsfc="f:selectItem"	itemValue="Segunda"   itemLabel="Segunda" ></option>
+						<option jsfc="f:selectItem"	itemValue="Terça"   itemLabel="Terça" ></option>	
+						<option jsfc="f:selectItem"	itemValue="Quarta"   itemLabel="Quarta" ></option>
+						<option jsfc="f:selectItem"	itemValue="Quinta"   itemLabel="Quinta" ></option>	
+						<option jsfc="f:selectItem"	itemValue="Sexta"   itemLabel="Sexta" ></option>
+						<option jsfc="f:selectItem"	itemValue="Sábado"   itemLabel="Sábado" ></option>	
+					</select>							
+										
+				</div>								
+
+			</fieldset>	
+			
+			<fieldset class="imagem">
+			
+				<legend>Imagem de Exibição</legend>
+				
+				<div id="imagem">				
+					<tr:inputFile name="imagem" id="arquivo" size="38" value="#{CadAtividade.arquivo}" class="Enviar"/>	
+					<h:message for="imagem"></h:message>
+				</div>				
+			
+			</fieldset>	
+			
+			<div id="eventos">				
+				
+				<fieldset class="periodo2">
+					
+					<legend>Período de Disponibilidade</legend>
+				
+					<div class="disponibilidade">					
+						<span id="id0">*Data Inicial</span>								
+						
+						<input type="text" jsfc="h:inputText" id="data"  value="#{CadAtividade.atividade.dataInicial.dia}" maxlength="2" />
+						<span id="id"> / </span>
+						<input type="text" jsfc="h:inputText" id="mesinicio"  value="#{CadAtividade.atividade.dataInicial.mes}" maxlength="2" /> 
+						<span id="id1"> / </span>								
+						<input type="text" jsfc="h:inputText" id="anoinicio"  value="#{CadAtividade.atividade.dataInicial.ano}" maxlength="4"  class="anoinicio"/>
+					</div>
+					
+					<div class="disponibilidade2">					
+						<span id="id3">*Data Final</span>								
+						<input type="text" jsfc="h:inputText" id="diafim"  value="#{CadAtividade.atividade.dataFinal.dia}" maxlength="2" /> 
+						<span id="id4"> / </span>
+						<input type="text" jsfc="h:inputText" id="mesfim"  value="#{CadAtividade.atividade.dataFinal.mes}" maxlength="2" /> 
+						<span id="id5"> / </span>								
+						<input type="text" jsfc="h:inputText" id="anofim"  value="#{CadAtividade.atividade.dataFinal.ano}" maxlength="4" class="anofim"/> 
+					</div>	
+						<small><h:message for="data"></h:message></small>							
+			</fieldset>
+
+			<fieldset class="info_evento">
+				<legend>Importante</legend>
+				<p>
+					Período de disponibilidade obrigatório para os tipos de atividade:
+					Cultura e Lazer e Negócios
+				</p>
+			
+			</fieldset>
+			
+		</div>
+		<div id="obrigatorio">
+			<strong>*Campos Obrigatórios</strong>
+		
+			<input jsfc="h:commandButton"  type="submit" value="Salvar" action="#{CadAtividade.persisteAtividade}" styleClass="botao" />
+		</div>
+						
+	</form>	
+
+ 		<br />
+ 		</body>
+</html>						

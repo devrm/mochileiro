@@ -1,0 +1,84 @@
+	/* formatação de layout do formulário */
+	#formulario {
+		background-color: #E8E8E8;
+		width: 706px;
+		border: 1px dotted gray;
+		margin-bottom: 10px;
+		float: right;
+	}
+	
+	#formulario form {
+		margin: 5px 50px 5px 60px;
+		width: 544px;
+	}
+	
+	#formulario h2 {
+		text-align: center;
+	}
+	
+	#corpo form label { /*margin-left:58px;*/
+		font-weight: bold;
+	}
+	
+	#corpo form input {
+		padding: 1px;
+		width: 177px;
+		margin: 5px 0 5px 2px;
+		position: relative;
+	}
+	
+	#corpo form .inputGrande {
+		width: 430px;
+	}
+	
+	select {
+		width: 56px;
+		margin-left: 2px;
+		text-align: center;
+	}
+	
+	#corpo form .botao {
+		margin-top: -5px;
+	}
+	
+	#corpo form p {
+		margin: 15px 0 0 28px;
+	}
+	
+	/* formatação para mensagens de erro no formulário */
+	#formulario form .msgErro,.msgErro2,.msgErro3,.msgErro4 {
+		padding: 2px 0 2px 0;
+		color: red;
+		margin-left: 110px;
+	}
+	
+	.msgErro {
+		margin-right: -210px;
+	}
+	
+	.msgErro2 {
+		margin-left: 210px;
+		margin-right: -300px;
+	}
+	
+	.msgErro3 {
+		width: 400px;
+		text-align: right;
+		margin-left: 330px;
+		padding: 0;
+		clear: both;
+	}
+	
+	.msgErro4 {
+		margin-left: 350px;
+	}
+	
+	/* Formatação para campos não atualizaveis no formulário */
+	.inativo {
+		background-color: #f2f6Eb;
+		color: gray;
+	}
+	
+	#formulario small {
+		color: gray;
+	}

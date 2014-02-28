@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core" lang="pt-br">
+
+
+<body>      
+		
+	<form jsfc="h:form" id="cad_viajantes" >
+		<label style="margin-left:57px;">*Nome:</label><input jsfc="h:inputText" type="text" id="nome" value="#{CadViajante.viajante.nome}" maxlength="70" styleClass="inputGrande" required="true" requiredMessage="Valor Inválido para Nome" />
+		<span jsfc="h:message" for="nome" styleClass="msgErro"></span><br />
+		
+		<label style="margin-left:68px;">*CPF:</label><h:inputText id="cpf" value="#{CadViajante.viajante.cpf}" required="true"  requiredMessage="CPF inválido" style="margin-right:240px; width:80px;" maxlength="11"><f:validator validatorId="ValidaCampoFormulario" /></h:inputText>
+		<span jsfc="h:message" for="cpf" styleClass="msgErro"></span><br />
+		
+		<label style="margin-left:15px;">*Logradouro:</label><input jsfc="h:inputText" type="text" id="logradouro" value="#{CadViajante.viajante.endereco.logradouro}" required="true" requiredMessage="Logradouro inválido" style="width:333px;" maxlength="70"/>
+		<label style="margin-left:9px;">*Nº:</label><input jsfc="h:inputText" type="text" id="numero" value="#{CadViajante.viajante.endereco.numero}" required="true" requiredMessage="Número inválido" style="width:52px;" maxlength="6"/>
+		<span jsfc="h:message" for="logradouro" styleClass="msgErro"></span> <span jsfc="h:message" for="numero" styleClass="msgErro4"></span><br />
+		
+		<label style="margin-left:6px;">Complemento:</label><input jsfc="h:inputText" type="text" id="complemento" value="#{CadViajante.viajante.endereco.complemento}" maxlength="20"/>  
+		<label style="margin-left:25px;">*CEP:</label><h:inputText id="cep" value="#{CadViajante.viajante.endereco.cep}" required="true" requiredMessage="CEP inválido" style="width:60px;" maxlength="8"><f:validator validatorId="ValidaCampoFormulario" /></h:inputText>
+		
+			 <label style="margin-left:21px;">*UF:</label>			
+  	       
+  	        <select jsfc="h:selectOneMenu" id="uf" value="#{CadViajante.viajante.endereco.uf}" >								
+					<option jsfc="f:selectItem"	itemValue="1"   itemLabel="AC" ></option>
+					<option jsfc="f:selectItem"	itemValue="2"   itemLabel='AL'></option>
+					<option jsfc="f:selectItem"	itemValue="3"   itemLabel='AM'></option>
+					<option jsfc="f:selectItem"	itemValue="4"   itemLabel='AP'></option>
+					<option jsfc="f:selectItem"	itemValue="5"   itemLabel='BA'></option>
+					<option jsfc="f:selectItem"	itemValue="6"   itemLabel='CE'></option>
+					<option jsfc="f:selectItem"	itemValue="7"   itemLabel='DF'></option>
+					<option jsfc="f:selectItem"	itemValue="8"   itemLabel='ES'></option>
+					<option jsfc="f:selectItem"	itemValue="9"   itemLabel='GO'></option>
+					<option jsfc="f:selectItem"	itemValue="10"  itemLabel='MA'></option>
+					<option jsfc="f:selectItem"	itemValue="11"  itemLabel='MG'></option>
+					<option jsfc="f:selectItem"	itemValue="12"  itemLabel='MS'></option>
+					<option jsfc="f:selectItem"	itemValue="13"  itemLabel='MT'></option>
+					<option jsfc="f:selectItem"	itemValue="14"  itemLabel='PA'></option>
+					<option jsfc="f:selectItem"	itemValue="15"  itemLabel='PB'></option>
+					<option jsfc="f:selectItem"	itemValue="16"  itemLabel='PE'></option>
+					<option jsfc="f:selectItem"	itemValue="17"  itemLabel='PI'></option>
+					<option jsfc="f:selectItem"	itemValue="18"  itemLabel='PR'></option>
+					<option jsfc="f:selectItem"	itemValue="19"  itemLabel='RJ'></option>
+					<option jsfc="f:selectItem"	itemValue="20"  itemLabel='RN'></option>
+					<option jsfc="f:selectItem"	itemValue="21"  itemLabel='RO'></option>
+					<option jsfc="f:selectItem"	itemValue="22"  itemLabel='RR'></option>
+					<option jsfc="f:selectItem"	itemValue="23"  itemLabel='RS'></option>
+					<option jsfc="f:selectItem"	itemValue="24"  itemLabel='SC'></option>
+					<option jsfc="f:selectItem"	itemValue="25"  itemLabel='SE'></option>
+					<option jsfc="f:selectItem"	itemValue="26" 	itemLabel='SP'></option>
+					<option jsfc="f:selectItem"	itemValue="27"  itemLabel='TO'></option>
+			 </select>
+				    	        
+			<span jsfc="h:message" for="cep" styleClass="msgErro3"></span><br />
+		 
+		<label style="margin-left:54px;">*Bairro:</label><input jsfc="h:inputText" type="text" id="bairro" value="#{CadViajante.viajante.endereco.bairro}" required="true" requiredMessage="Bairro inválido" maxlength="70"/>
+		<label style="margin-left:6px;">*Cidade:</label><input jsfc="h:inputText" type="text" id="cidade" value="#{CadViajante.viajante.endereco.cidade}" required="true" requiredMessage="Cidade inválida" maxlength="70"/>						
+		<span jsfc="h:message" for="bairro" styleClass="msgErro" ></span> <span jsfc="h:message" for="cidade" styleClass="msgErro3"></span><br />
+		
+		<label style="margin-left:65px;">*DDD:</label><h:inputText type="text" id="ddd" value="#{CadViajante.viajante.DDD}" required="true" requiredMessage="DDD inválido" style="width:24px; text-align:center;" maxlength="2" ><f:validator validatorId="ValidaCampoFormulario" /></h:inputText>					
+		<label style="margin-left:9px;">*Telefone:</label><h:inputText id="telefone" value="#{CadViajante.viajante.telefone}" required="true" requiredMessage="Telefone inválido" style="width:60px;" maxlength="8" ><f:validator validatorId="ValidaCampoFormulario" /></h:inputText>
+		<label style="margin-left:13px;">*E-mail:</label><h:inputText id="email" value="#{CadViajante.viajante.email}" required="true" requiredMessage="E-mail inválido" maxlength="40"><f:validator validatorId="ValidaCampoFormulario" /></h:inputText>
+		<span jsfc="h:message" for="ddd" styleClass="msgErro"></span> <span jsfc="h:message" for="telefone" styleClass="msgErro2"></span> <span jsfc="h:message" for="email" styleClass="msgErro4"></span><br />
+		
+		<label style="margin-left:43px;" >*Usuário:</label><h:inputText  class="somenteLeitura" readonly="#{CadViajante.campoSomenteLeitura}"  id="usuario" value="#{CadViajante.viajante.usuario.nickName}" required="true" requiredMessage="Usuário inválido" maxlength="25" ><f:validator validatorId="ValidaCampoFormulario" /></h:inputText>
+		<label style="margin-left:34px;" >*Senha:</label><h:inputSecret id="senha" value="#{CadViajante.viajante.usuario.senha}" maxlenght="25" required="true" requiredMessage="Senha inválida" style="width:154px;" maxlength="25" ><f:validator validatorId="ValidaCampoFormulario" /></h:inputSecret><br />
+		<span jsfc="h:message" for="usuario" styleClass="msgErro" ></span> <span jsfc="h:message" for="senha" styleClass="msgErro3"></span>
+		<br />
+		
+		<input jsfc="h:commandButton"  type="submit" value="Salvar" action="#{CadViajante.persisteViajante}" styleClass="botao" /> <!-- linka botão com método do Bean/POJO -->					
+		
+	</form>		
+</body>		
+	    
+</html>

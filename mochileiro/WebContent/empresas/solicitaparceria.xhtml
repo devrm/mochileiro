@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+
+	  lang="pt-br">
+
+	
+    <body>
+        
+	<ui:composition template="../configuracao/template.xhtml">
+            
+	<ui:define name="titulo">
+	.:: O Mochileiro - Solicitar Parceria ::.
+	</ui:define>
+	
+	<ui:define name="estilos">
+    	<link href="../css/lista_viajante.css" rel="stylesheet" type="text/css" />    
+	</ui:define>
+	
+	<ui:define name="conteúdo">
+	
+	<div id="divSolicitacao">
+	<h3 class="titulo">Atividade Selecionada como Parceira - <small><h:outputText value="#{Parceria.parceiroSolicitacao.nomeAtividade}"></h:outputText> </small></h3>
+			
+	<h:form id="solicitacao">
+ 	<h:dataTable  binding="#{listaEmpresa.p.dataTable}" 
+		    value="#{listaEmpresa.model}" var="itemLista" 
+		    rowClasses="lin_a, lin_b" rows="#{listaEmpresa.p.maxPorPagina}">					
+		
+		<f:facet name="header">
+			<h3>Atividades em sua lista disponíveis para enviar convinte de parceria</h3>		
+		</f:facet>
+		<h:column>			
+			<h:outputText value="#{itemLista.nomeAtividade}" />
+		</h:column>
+		
+		<h:column>
+			<h:outputText value="#{itemLista.categoria.nome}" />
+		</h:column>
+		
+		<h:column>
+			<h:commandLink action="#{Parceria.enviaSolicitacao}" value="Selecionar">
+				
+				<!-- seta atividade como solicitante -->
+				<f:setPropertyActionListener value="#{itemLista}" target="#{Parceria.atividade}" />
+			</h:commandLink>
+		</h:column>
+		</h:dataTable>
+		
+						<div id="linha60" class="paginacao">
+					<h:commandLink id="linha61" action="#{listaEmpresa.p.primeiraPagina}" 
+	                value="Primeira" rendered="#{listaEmpresa.p.dataTable.first!=0}" />
+	                 
+					<h:commandLink id="linha64" value="|" rendered="#{listaEmpresa.p.dataTable.first!=0}" />
+	                 
+	                <h:commandLink id="linha66" value="Anterior" action="#{listaEmpresa.p.paginaAnterior}"
+	                rendered="#{listaEmpresa.p.dataTable.first != 0}" />
+					
+					<h:commandLink id="linha69" value="|" 
+  	                rendered="#{listaEmpresa.p.dataTable.rowCount > listaEmpresa.p.dataTable.first + listaEmpresa.p.dataTable.rows and
+  	                (listaEmpresa.p.dataTable.first != 0)}" />
+                	                
+	                <h:commandLink id="linha73" value="Próxima" action="#{listaEmpresa.p.proximaPagina}"
+	                rendered="#{listaEmpresa.p.dataTable.rowCount > listaEmpresa.p.dataTable.first + listaEmpresa.p.dataTable.rows}" />
+	              	                
+	                <h:commandLink id="linha76" value="|" rendered="#{listaEmpresa.p.dataTable.rowCount > listaEmpresa.p.dataTable.first + listaEmpresa.p.dataTable.rows}" />
+	                    
+	                <h:commandLink id="linha78" value="Última" action="#{listaEmpresa.p.ultimaPagina}"
+	                rendered="#{listaEmpresa.p.dataTable.rowCount > listaEmpresa.p.dataTable.first + listaEmpresa.p.dataTable.rows}" />
+				</div>		
+	</h:form>
+	
+			<h:message for="solicitacao" ></h:message>	
+	</div>
+	</ui:define>
+	
+	</ui:composition>
+        
+    </body>
+</html>
+	

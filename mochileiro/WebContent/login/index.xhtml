@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+	  lang="pt-br">
+   		
+    <body>
+        
+	<ui:composition template="../configuracao/template.xhtml">
+            
+	<ui:define name="titulo">
+		.:: O Mochileiro - Logar-se no Sistema ::.	
+	</ui:define>
+	
+	 <ui:define name="estilos">
+		<link href="../css/login.css" rel="stylesheet" type="text/css" />				
+	 </ui:define>
+
+	 <ui:define name="busca_superior">
+				<ui:include src="/configuracao/busca_input.xhtml"></ui:include>
+	 </ui:define>
+
+	<ui:define name="conteúdo">
+		
+		<ui:include src="../configuracao/menu_lista.xhtml"></ui:include>
+			
+		<div id="conteudo">
+				
+			<div id="cadastrado">
+				<h3>Usuários Cadastrados</h3>
+				<p>Digite seu usuário e senha nos campos abaixo</p>
+				
+				<form jsfc="h:form" id="autenticacao" >
+					<label>Usuário</label>
+					<h:inputText id="usuario" value="#{Autenticacao.usuario.nickName}"  required="true" requiredMessage="Digite um Usuário" maxlength="25" ><f:validator validatorId="ValidaCampoFormulario" /></h:inputText>
+					
+					<label style="margin-left:15px;">Senha</label>
+					<h:inputSecret id="senha" value="#{Autenticacao.usuario.senha}"   required="true" requiredMessage="Digite uma Senha" validatorMessage="Senha com no mínimo 6 caracteres" maxlength="25" ><f:validator validatorId="ValidaCampoFormulario" /></h:inputSecret><br />
+					
+					<input jsfc="h:commandButton"  type="submit" value="Entrar" action="#{Autenticacao.validarUsuario}" styleClass="botao" /> 					
+				</form>
+				<br />
+				<div id="msg">
+					<span jsfc="h:message" for="usuario" styleClass="msgErro" /><br />					
+					<span jsfc="h:message" for="senha" styleClass="msgErro" />
+					
+					<!-- mensagens globais -->
+					<span jsfc="h:messages" for="autenticacao" styleClass="msgErro2" globalOnly="true" />
+				</div>
+				
+			</div>
+			<div id="cadastrar">
+				<h:form>
+				<h3>Cadastre-se</h3>
+				
+				<p>O Mochileiro é um sistema de busca de atividades na cidade de São Paulo, conheça as funcionalidades:</p>
+				
+				<h4>Viajantes</h4>
+				<p>Busque por atividades com maior precisão!</p>
+				<p style="margin-top: -1px; text-align: right;" ><a jsfc="h:commandLink" action="#{Autenticacao.getRotaViajante}" title="Cadastro de Viajantes">Cadastro de Viajantes</a></p>
+				
+				<h4 style="margin-top: -3px;">Empresas</h4>
+				<p> Exiba suas atividades na internet!</p>
+				<p style="text-align: right;"><a jsfc="h:commandLink" action="#{Autenticacao.getRotaEmpresa}" title="Cadastro de Empresas">Cadastro de Empresas</a></p>
+				</h:form>
+			</div>
+		</div>	
+		</ui:define>
+
+</ui:composition>
+        
+    </body>
+</html>
+	
+		

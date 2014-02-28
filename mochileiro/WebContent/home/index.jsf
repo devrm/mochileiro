@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+	  lang="pt-br">
+	
+    <body>
+        
+	<ui:composition template="../configuracao/template.xhtml">
+            
+	<ui:define name="titulo">
+	.:: O Mochileiro - Home ::.
+	</ui:define>
+	
+	<ui:define name="estilos">
+    	<link href="../css/home.css" rel="stylesheet" type="text/css" />    
+	</ui:define>
+	
+	 <ui:define name="busca_superior">
+				<ui:include src="../configuracao/busca_input.xhtml"></ui:include>
+	 </ui:define>
+
+	<ui:define name="conteúdo">
+		<ui:include src="../configuracao/menu_lista.xhtml"></ui:include>
+		
+		<div id="dados">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget lorem eget sem imperdiet ornare consequat id libero. In et justo vitae arcu porttitor gravida. Curabitur elementum mattis suscipit. Ut euismod leo sit amet ipsum volutpat egestas. Nulla lacinia diam at dolor pulvinar ultricies. Phasellus nec sapien nec ante scelerisque facilisis non vel lectus. Donec volutpat facilisis convallis. Cras eu libero sit amet diam consectetur porttitor. Nunc viverra viverra orci non molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent nunc arcu, iaculis vel vulputate a, condimentum id est. Curabitur eros metus, dapibus vitae malesuada sit amet, placerat eget mi.
+
+Sed eleifend eros eget tellus pulvinar ut lobortis nulla pretium. Pellentesque consectetur arcu sit amet ligula aliquet porta luctus augue luctus. Quisque suscipit sapien erat. In eget libero mi, vel pretium arcu. Curabitur laoreet, ligula eu sodales sagittis, odio enim elementum nisi, ut tristique sapien nulla nec mi. Fusce vehicula blandit justo, at imperdiet enim bibendum vitae. Morbi et neque sit amet lacus vehicula pulvinar. Ut porta massa sit amet augue tempus consectetur. Curabitur eget nisi non enim tempor vehicula sit amet eget est. Suspendisse potenti. Pellentesque in mi tortor. Proin et ipsum purus, id hendrerit turpis.
+
+		</p>
+		</div>
+	</ui:define>
+	
+	</ui:composition>
+        
+    </body>
+</html>
+	

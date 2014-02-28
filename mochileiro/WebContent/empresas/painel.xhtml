@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+	  lang="pt-br">
+	
+    <body>
+        
+	<ui:composition template="../configuracao/template.xhtml">
+            
+	<ui:define name="titulo">
+	.:: O Mochileiro - Painel de Controle | Empresa ::.
+	</ui:define>
+	
+	<ui:define name="estilos">
+    	<link href="../css/painel.css" rel="stylesheet" type="text/css" /> 
+    	
+    	<style>
+    	
+    	</style>
+    	 
+    	
+	</ui:define>
+	
+	<ui:define name="conteúdo">
+<div id="corpo">
+
+	<div id="conteudo">
+
+		<div class="titulo">
+			<h2>Painel de Controle - Empresas </h2>
+				<h:form>
+					<label class="combo"><strong>Relatórios</strong>  						
+						<select jsfc="h:selectOneMenu" id="relatorio" value="#{Empresa.relatorioSelecionado}">
+							<option jsfc="f:selectItems" value="#{Empresa.listaRelatorios}" />
+						</select>						
+						<h:commandButton action="#{Empresa.defineRelatorio}" value="Criar"></h:commandButton>					 
+					</label>
+				</h:form>					
+		</div>
+		
+		  <div id="infos">
+			<div id="solicitacoes">
+				<div id="descricao">
+					<h3>Novas Solicitações de Parceria</h3>
+						<p><h:outputText value="#{Empresa.mensagemSolicitacao}" /></p>					
+				</div>				
+			</div>
+			
+			<div id="estimativa">
+				<h3>Informações da Conta</h3>
+				<p><strong>Empresa: </strong><label jsfc="h:outputLabel" 				value="#{Empresa.empresa.nomeEmpresa}"/></p>
+				<p><strong> Usuário: </strong><label jsfc="h:outputLabel" 				value="#{Empresa.empresa.usuario.nickName}"/></p>
+				<p><strong>Data Cadastro: </strong><label jsfc="h:outputLabel" 			value="#{Empresa.empresa.dataCadastro.dataFormatada}"/></p>
+				<p><strong>Atividades Cadastradas:</strong><label jsfc="h:outputLabel"  value="#{Empresa.qtdAtividades}"/></p>
+			</div>
+
+		</div>	
+			
+			<div class="op">
+				<h3>Operacões Disponíveis</h3>			
+				
+			</div>
+			<div id="operacoes">								
+				<ui:include src="../configuracao/operacoes_empresa.xhtml"></ui:include>					
+			</div>			
+			
+			<div id="mensagemPainel">						
+
+			   <span jsfc="h:messages" globalOnly="true"></span>
+
+			</div>	
+			
+		</div><!-- fim conteúdo -->
+	</div><!-- fim corpo -->
+	
+</ui:define>
+	
+</ui:composition>
+        
+    </body>
+</html>
+	

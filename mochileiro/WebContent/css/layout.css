@@ -1,0 +1,214 @@
+	* {
+		padding: 0;
+		margin: 0;
+		text-decoration: none;
+		list-style: none;
+		border: none;
+	}
+	
+	a {
+		cursor: pointer;
+	}
+	
+	body {
+		width: 850px;
+		margin: 12px auto;
+		border: 1px solid gray;
+		font-family: arial;
+		font-size: 15px;
+	}
+	
+	#geral {
+		margin: 5px;
+	}
+	
+	h1 {
+		background: url(../imagens/logo.jpg) no-repeat;
+		width: 413px;
+		height: 113px;
+		float: left;
+		margin-bottom: 5px;
+		font-size: 0;
+	}
+	
+	input,select,textarea,button {
+		border: 1px solid #a5a7aa;
+		border-left: 1px solid gray;
+		border-top: 1px solid gray;
+		clear: both;
+	}
+	
+	#lista_superior {
+		float: right;
+		text-align: right;
+		line-height: 137%;
+		margin-top: 10px;
+	}
+	
+	#lista_superior ul li {
+		color: gray;
+	}
+	
+	#menu_superior {
+		clear: both;
+		border-bottom: 2px solid #a5a7aa;
+		padding-bottom: 5px;
+	}
+	
+	#menu_superior ul li {
+		display: inline;
+		margin-right: -4px;
+	}
+	
+	#menu_superior  ul li a {
+		padding: 3px;
+		background-color: orange;
+		color: white;
+		font-weight: bold;
+		font-size: 16px;
+		border: 1px solid white;
+		outline: 0;
+	}
+	
+	#menu_superior .panel a{
+		background-color: ffa602;
+	}
+	
+	#menu_superior ul li a:hover,#menu_superior ul li a:active,#menu_superior ul li a:focus
+		{
+		border: 1px solid #ffad17;
+		color: #ffad17;
+		background-color: white;
+	}
+	
+	#menu_superior .panel a:hover{
+		border: 1px solid #ffa602;
+		color: orange;
+	}
+	
+	
+	
+	#menu_superior p {
+		text-align: right;
+		font-weight: bold;
+		color: orange;
+		clear: both;
+		margin-top: -18px;
+	}
+	
+	#busca_input {
+		margin: 5px 0 5px 0;
+		background-color: #C0C0C0;
+		padding: 4px;
+		border: 2px solid #a5a7aa;
+		font-weight: bold;
+	}
+	
+	#busca_input input {
+		border-left: 1px solid gray;
+		border-top: 1px solid gray;
+		width: 350px;
+		font-weight: bold;
+		padding: 2px;
+	}
+	
+	#busca_input label {
+		color: white;
+	}
+	
+	#busca_input .botao {
+		width: 56px;
+		border: 1px solid gray;
+		border-left: 1px solid #a5a7aa;
+		border-top: 1px solid #a5a7aa;
+	}
+	
+	.erroMsg {
+		color: white;
+	}
+	
+	#busca_input a:hover {
+		text-decoration: underline;
+	}
+	
+	#corpo {
+		margin: 10px 0 10px 0;
+	}
+	
+	#corpo form .botao {
+		width: 70px;
+		cursor: pointer;
+		float: right;
+		text-transform: none;
+		border-left: 1px solid #a5a7aa;
+		border-top: 1px solid #a5a7aa;
+	}
+	
+	#rodape {
+		border: 1px solid gray;
+		clear: both;
+		background-color: orange;
+		text-align: center;
+		padding: 2px;
+	}
+	
+	/* controla a mensagem enviada para o painel */
+	#mensagemPainel {
+		margin-top: 10px;
+		background-color: #FEFFAF;
+		font-weight: bold;
+		border: 1px solid #a5a7aa;
+		text-align: center;
+		clear: both;
+	}
+	
+	
+	/* estilo para cabeçalho de gerenciamento de parcerias e painel viajante */
+		#cabecalho {
+		color: white;
+		margin-bottom: 5px;
+	}
+	
+	#cabecalho .borda {
+		padding: 2px;
+	}
+	
+	#cabecalho h3 {
+		text-align: center;
+		border: 1px solid white;
+		padding:3px;
+	}
+	
+	/* paginação*/
+	
+	
+		.paginacao {
+		clear: both;
+		text-align: center;
+		color: gray;
+		width: 100%;
+		padding-bottom: 5px;
+		margin: 1px;
+	}
+	
+	.paginacao a {
+		color: gray;
+		text-decoration: none;
+		margin: 3px;
+		text-align: center;
+		border: 1px solid #f1f2f7;
+		padding: 1px;
+	}
+	
+	.paginacao a:hover {
+		color: orange;
+		border-color: orange;
+	}
+	
+	.paginacao small {
+		text-align: center;
+		font-size: 12px;
+		float: right;
+	}
+	
+	

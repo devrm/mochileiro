@@ -1,0 +1,172 @@
+	#cabecalho {
+		background-color: #038fc2;
+	}
+	
+	#cabecalho span {
+		text-transform: capitalize;
+	}
+	
+	#painel h3 {
+		text-align: center;
+		margin: 2px 2px 10px 2px;
+		text-transform: capitalize;
+		color: gray;
+		background: url(../imagens/h3.gif) repeat-x;
+		height: 25px;
+	}
+	
+	#painel p,#painel ul,#painel h4 {
+		margin: 2px;
+	}
+	
+	#painel h4 span {
+		color: #038fc2;
+		margin-left: 5px;
+		font-weight: lighter;
+	}
+	
+	#atividade_com_parceiro h3,#atividades_sem_parceiro h3 {
+		text-align: left;
+	}
+	
+	#atividade_com_parceiro h3 strong,#atividades_sem_parceiro h3 strong {
+		margin-left: 5px;
+	}
+	
+	#atividade_com_parceiro h3 a,#atividades_sem_parceiro h3 a {
+		text-align: right;
+		font-size: 70%;
+		float: right;
+		margin: 5px;
+		color: #038fc2;
+	}
+	
+	#atividade_com_parceiro h3 a:hover strong, #atividades_sem_parceiro h3 a:hover strong {
+		color: orange;
+		text-decoration: none;
+	}
+	
+	#atividade_com_parceiro,#parceiro {
+		width: 70%;
+		border: 1px solid gray;
+		float: left;
+		margin-right: 5px;
+	}
+	
+	#atividade_com_parceiro {
+		border: 1px solid silver;
+		margin-bottom: 5px;
+	}
+	
+	#parceiro {
+		width: 100%;
+		border: none;
+		border-top: 1px dotted gray;
+	}
+	
+	#parceiro #infos_parceiro p img{
+		float: right;
+
+	}
+	
+	#solicitacoes_com_parceiros {
+		border: 1px solid silver;
+		float: right;
+		width: 243px;
+		height: 118px;
+	}
+	
+	#solicitacoes_com_parceiros h3 {
+		margin-bottom: -1px;
+	}
+	
+	#solicitacoes_com_parceiros span {
+		float: right;
+		color: #038fc2;
+		margin-right: 5px;
+	}
+	
+	#solicitacoes_com_parceiros span a:hover {
+		font-weight: bold;
+	}
+	
+	#atividades_sem_parceiro {
+		clear: both;
+		border: 1px solid silver;
+		height: 175px;
+	}
+	
+	.sem_parceria {
+		margin: 3px;
+	}
+	
+	.nomeatv {
+		float: left;
+		margin-top: 4px;
+		margin-right: 3px;
+		font-weight: bold;
+		width: 192px;
+	}
+	
+	#painel ul li a {
+		color: gray;
+	}
+	
+	#painel ul li a:hover {
+		color: #038fc2;
+		text-decoration: underline;
+	}
+	
+	#solicitacoes_com_parceiros ul {
+		display: block;
+		height: 69px;
+	}
+	
+	#semparceiro {
+		border-right: 1px dotted gray;
+		margin: 5px 3px 5px 7px;
+		width: 197px;
+		float: left;
+	}
+	
+	#atividades_sem_parceiro ul {
+		float: left;
+		width: 193px;
+		margin: 5px 5px 5px 10px;
+		border-right: 1px dotted gray;
+		text-transform: capitalize;
+	}
+	
+	.categoria {
+		color: orange;
+	}
+	
+	.atvSolicitada {
+		text-transform: uppercase;
+	}
+	
+	.verTodas a {
+		color: #038fc2;
+	}
+	
+	#painel h5{
+		margin: 5px;
+		text-align: center;
+		font-size: 13px;
+	}
+	
+	#parc1 a{
+		color: #038fc2;
+	}
+	
+	#parc1 a:hover{
+		text-decoration: underline;
+	}
+	
+	
+	
+	/* mensagens de erro */
+	.msgSolic {
+		padding: 10px 5px 10px 10px;
+		text-align: justify;
+	}

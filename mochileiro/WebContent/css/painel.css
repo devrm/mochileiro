@@ -1,0 +1,163 @@
+	
+	#conteudo{
+	margin: 5px;
+	}
+	
+	/* mudanças do título */	
+	#conteudo .titulo{
+	padding-bottom:3px;
+	border-bottom: 1px dotted black;
+	}
+	
+	#conteudo .titulo h2{
+	width:80%;
+	}
+		
+	
+	#conteudo .titulo a{
+		float: right;
+		margin-top:-18px;
+	}		
+	
+	#infos{
+	margin-top:15px;
+	height:116px;
+	width:100%;
+	margin-bottom:10px;
+	}
+	
+	
+	#estimativa {
+	border: 1px solid gray;
+	width:370px;
+	float:left;
+	height:113px;
+	}
+	
+	#estimativa h3, #estimativa p{
+	margin:3px;
+	}
+	
+	#estimativa p {
+	margin: 4px 0 0 43px;
+	color: gray;
+	text-align: left;
+	text-transform: capitalize;
+	}
+	
+	#estimativa a{
+	margin: 10px 4px 0 300px;
+	}
+	
+	#estimativa a:hover{
+	text-decoration: underline;
+	}
+	
+	#descricao{
+	width: 400px;
+	text-align: justify;
+	float:right;
+	border: 1px solid #589443;
+	background-color: #f2f6eb;
+	height:113px;
+	}
+	
+	#descricao p, #descricao h3{
+	margin:4px;
+	}
+	
+	#descricao a{
+	color:gray;
+	font-weight: bold;
+	margin-right: 4px;
+	float: right;
+	}
+	
+	#descricao a:hover{
+	color: orange;
+	}
+	
+	#conteudo .op {
+	text-align: left;
+	clear: both;
+	}
+	
+	.op h3{
+	background-color: #88bb6d;
+	float:left;
+	padding:3px;
+	color: white;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-topleft: 10px;
+	*border: 3px solid #88bb6d;
+	}
+	
+	#operacoes{
+	clear: both;
+	border: 3px solid #88bb6d;
+	padding:5px;
+	height:100px;
+	}
+	
+	#operacoes ul li{
+	display:inline;
+	}
+	
+	#operacoes ul li a{
+	font-weight: bold;
+	text-align: center;
+	color: white;
+	padding:5px;
+	background-color: #019bff;
+	-moz-border-radius:10px;
+	float:left;
+	margin:15px 30px 6px 30px;
+	border-bottom: 1px solid blue;	
+	border-right: 1px solid blue;
+	width:200px;
+	position: relative;
+	}
+	
+	#operacoes .logout a{
+	background-color: #88bb6d;
+	border-bottom: 1px solid gray;	
+	border-right: 1px solid gray;
+	}
+	
+	#operacoes .logout a:hover{
+	background-color: red;
+	}
+		
+	
+	#operacoes ul li a:hover{
+	background-color: orange;
+	border-bottom: 1px solid gray;	
+	border-right: 1px solid gray;
+	}
+	
+	#rodape{
+	position: relative;
+	}
+	
+	/* formata combobox relatórios */
+	
+	.titulo label{
+		margin-top: -40px;
+		float: right;
+	}
+	
+	.titulo select{
+		padding: 1px;
+		width:180px;
+	}
+	
+	
+
+
+	
+	
+
+
+
+	
+

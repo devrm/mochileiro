@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+	  lang="pt-br">
+
+	
+    <body>
+        
+	<ui:composition template="../configuracao/template.xhtml">
+            
+	<ui:define name="titulo">
+	.:: O Mochileiro - Busca de Atividades ::.
+	</ui:define>
+	
+	<ui:define name="estilos">
+    	<link href="../css/busca.css" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="../css/menu_horizontal.css" />
+	    <script language="javascript" src="../configuracao/eventosJavascript.js"></script>
+	</ui:define>
+	
+	<ui:define name="conteúdo">			
+			<div class="info">	
+				<h2>Busca de Atividades</h2>
+				<p>Preencha o formulário com os parâmetros desejados para encontrar atividades</p>
+			</div>
+			
+			<div id="menu-lista">		
+				<ui:include src="../configuracao/#{buscaAtividade.menuUsuario}"></ui:include>
+			</div>
+		
+			<h:form id="busca" prependId="false">
+					<label class="nome">
+						Nome da Atividade <h:inputText value="#{buscaAtividade.atividadeParametros.nomeAtividade}" maxlength="60"></h:inputText>
+					</label>
+					
+					<label class="selecao">Categoria
+					<select jsfc="h:selectOneMenu" id="tipo_atividade" value="#{buscaAtividade.atividadeParametros.categoria.codigo}" 
+					onchange="setColecao(${buscaAtividade.jsArray}, this.value)">
+						<option jsfc="f:selectItems" value="#{buscaAtividade.listaSelect}" />
+					</select>									<small class="errocombo"><h:message for="tipo_atividade"></h:message></small>
+					</label>	
+				
+				<div id="endereco">
+					<label class="logradouro">Logradouro
+						<h:inputText value="#{buscaAtividade.atividadeParametros.endereco.logradouro}" maxlength="60"></h:inputText>
+					</label>
+					
+					<label class="numero">Número
+						<h:inputText value="#{buscaAtividade.atividadeParametros.endereco.numero}" maxlength="9"></h:inputText>
+					</label>
+					
+					<label class="complemento">Complemento
+						<h:inputText value="#{buscaAtividade.atividadeParametros.endereco.complemento}" maxlength="50"></h:inputText>
+					</label>
+					
+					<label class="bairro">Bairro
+						<h:inputText value="#{buscaAtividade.atividadeParametros.endereco.bairro}" maxlength="50"></h:inputText>
+					</label>
+					<br />
+					
+				<div id="datas">											
+					<label class="cep">CEP
+						<h:inputText id="cep" value="#{buscaAtividade.atividadeParametros.endereco.cep}" maxlength="8" requiredMessage="Campo Obrigatório" >
+						<f:validator validatorId="ValidaCampoFormulario" /></h:inputText>
+					</label>
+
+					<label class="data">Data Inicial</label>
+						<h:inputText value="#{buscaAtividade.atividadeParametros.dataInicial.dia}" maxlength="2"></h:inputText>
+						<span> / </span>
+						<h:inputText value="#{buscaAtividade.atividadeParametros.dataInicial.mes}" maxlength="2"></h:inputText>
+						<span> / </span>
+						<h:inputText value="#{buscaAtividade.atividadeParametros.dataInicial.ano}" styleClass="ano" maxlength="4"></h:inputText>
+						
+						<label class="data">Data Final</label>					
+							<h:inputText id ="data" value="#{buscaAtividade.atividadeParametros.dataFinal.dia}" maxlength="2"></h:inputText>
+							<span> / </span>
+							<h:inputText  id ="mes_ini" value="#{buscaAtividade.atividadeParametros.dataFinal.mes}" maxlength="2"></h:inputText>
+							<span> / </span>
+							<h:inputText value="#{buscaAtividade.atividadeParametros.dataFinal.ano}" styleClass="ano" maxlength="4"></h:inputText>
+					</div>
+					
+					<small class="erroesquerda"><h:message for="cep"></h:message></small>
+					<small class="erroesquerda"><h:message for="data"></h:message></small>						
+				<h:commandButton action="#{buscaAtividade.buscar}" value="Buscar" styleClass="botao"></h:commandButton>
+									   
+				
+				<div id ="msg">
+				<small class="msg"><h:message for="busca" /></small>
+				</div>
+				
+			</div>		 
+			</h:form>
+			<div id="informe">
+				
+				<div id="descricao" style="display:none;">
+					<p><strong>*Descrição atividade:</strong> <em id="mensagem" /></p>
+				</div>				
+			</div>	
+				
+				
+		</ui:define>	
+		</ui:composition>
+    </body>
+</html>
+	

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+	  lang="pt-br">
+	
+    <body>
+        
+	<ui:composition template="../configuracao/template.xhtml">
+            
+	<ui:define name="titulo">
+	.:: O Mochileiro - Gerenciamento de Parcerias ::.
+	</ui:define>
+	
+	<ui:define name="estilos">
+    	<link href="../css/gerenciamento_parceria.css" rel="stylesheet" type="text/css" />    
+		<script language="javascript" src="../configuracao/eventosJavascript.js"></script>
+	</ui:define>
+	
+	<ui:define name="conteúdo">
+	<h:form id="doParceiro">
+		<div id="cabecalho">
+			<div class="borda">
+				<h3>Gerenciamento de Parcerias - <span><h:outputText value="#{Parceria.empresa.nomeEmpresa}" /></span></h3>
+			</div>
+		</div>
+
+		<div id="painel">
+			
+			<div id="atividade_parceria">	
+
+				<!-- carrega parceiro/atividade recente -->
+				<ui:repeat value="#{Parceria.atvComParcSolic}" var="atvLista" size="0">
+				
+				<div id="atividade_com_parceiro">
+					<h3 class="sem_parceria">
+						<strong>parceria firmada</strong> 
+						<h:commandLink  rendered="#{not empty Parceria.atvComParcSolic}" title="Ver todas as parcerias da empresa #{Parceria.empresa.nomeEmpresa}" 
+						action="#{Parceria.exibeParcerias}" ><strong>&gt;&gt;</strong> Ver Todas Parcerias</h:commandLink> 
+					</h3>
+										
+					<h4>Nome da Atividade: <span><h:outputText value="#{atvLista.nomeLista}" /></span></h4>
+					<div id="infos_atividade">
+						<p>Comentários: <span><h:outputText value="#{atvLista.comentarios}" /> </span>| 
+						   Data de Cadastro: <span><h:outputText value="#{atvLista.dataCadastro.dataFormatada}"/> </span> |
+						   Categoria: <span class="categoria"><h:outputText value="#{atvLista.parceiro.categoria.nome}"/></span></p>								
+					</div>
+						<div id="parceiro">	
+										
+							<h4>Nome do Parceiro:<span id="parc1">		
+									
+									<h:commandLink  action="#{visualizaAtividade.carregaAtividade}" title="visualizar informações do parceiro" value="#{atvLista.parceiro.nomeLista}">
+										<!-- envia objeto para página de visualização completa -->
+	 									<f:setPropertyActionListener id="envia" target="#{visualizaAtividade.atividade}" value="#{atvLista.parceiro}" />
+	 								</h:commandLink></span></h4>
+	 								
+								<div id="infos_parceiro">
+									<p>Comentários: 
+										<span><h:outputText value="#{atvLista.parceiro.comentarios}" /> </span> | 
+									   
+									   Data de Cadastro: 
+									   	<span><h:outputText value="#{atvLista.parceiro.dataCadastro.dataFormatada}"/> </span> |
+									   
+									   Categoria: 
+									   	<span class="categoria"><h:outputText value="#{atvLista.parceiro.categoria.nome}"/></span> 
+										
+										<span>
+										
+										<h:commandLink title="Excluir Parceria entre #{atvLista.nomeLista} e #{atvLista.parceiro.nomeAtividade}" 
+									      onclick="return operacao(1);" action="#{Parceria.excluiParceria}"><img src="../imagens/rejeitar.png" alt="rejeitar" />									      
+										      <!-- envio objeto para manipulação -->
+	 										  <f:setPropertyActionListener id="linha54" target="#{Parceria.atividade}" value="#{atvLista}" />									      
+									     </h:commandLink>
+									     
+									</span></p>
+								</div>							
+						</div>						
+				</div>
+				
+				<div id="solicitacoes_com_parceiros">
+					<h3 class="sem_parceria">Solicitações Pendentes</h3>
+										
+					<h5><h:outputText id="solic" value="#{Parceria.mensagem}" rendered="#{Parceria.mensagem != null}" /></h5>
+										
+					 <ul>
+						<!-- carrega o array de solicitações da atividade que está sendo exiba -->
+						<ui:repeat value="#{atvLista.solicitacoes}" var="atvSolicitacoes" size="2" >
+							<li>
+								<h:commandLink  id="linha50" action="#{visualizaAtividade.carregaAtividade}" value="#{atvSolicitacoes.nomeLista}" title="ver informações da atividade solicitante" class="nomeatv">
+	 								<!-- envio objeto para página de visualização completa -->
+	 								<f:setPropertyActionListener id="lin54" target="#{visualizaAtividade.atividade}" value="#{atvSolicitacoes}" /> 
+	 							</h:commandLink>							
+	
+								<!-- invoca método responsável por firmar parceria -->
+								<h:commandLink title="aceitar solicitação" onclick="return operacao(2);" action="#{Parceria.atualizaParceria}"><img src="../imagens/aceitar.png" alt="aceitar"/>
+									
+									<!-- seta objeto solicitado no atributo do MB -->
+									<f:setPropertyActionListener id="linha54" target="#{Parceria.atividade}" value="#{atvLista}" />
+									
+									<!-- seta objeto solicitante no atributo do MB -->
+									<f:setPropertyActionListener id="linha54" target="#{Parceria.parceiroSolicitacao}" value="#{atvSolicitacoes}" />
+								</h:commandLink>
+								
+								<!-- invoca método de exclusão de solicitações -->							
+								<h:commandLink title="rejeitar solicitação" onclick="return operacao(3);" action="#{Parceria.excluiSolicitacao}"><img src="../imagens/rejeitar.png" alt="rejeitar" />
+									
+									<!-- seta objeto que contêm as solicitações no MB -->								
+									<f:setPropertyActionListener id="lin57" target="#{Parceria.atividade}" value="#{atvLista}" />
+									
+									<!-- seta solicitação na lista de exclusão do MB -->								
+									<f:setPropertyActionListener id="linha58" target="#{Parceria.parceiroSolicitacao}" value="#{atvSolicitacoes}" />
+									
+								</h:commandLink>
+							</li>
+						</ui:repeat>
+					</ul> 
+					<span class="verTodas"> 
+						  <h:commandLink  action="#{Parceria.exibeSolicitacoes}"  value="Ver Todas" title="ver todas as solicitações para a atividade #{atvLista.nomeLista}" rendered="#{not empty atvLista.solicitacoes}">    
+							<!-- seta objeto alvo no atributo do MB -->								
+						 <f:setPropertyActionListener id="lin58" target="#{Parceria.atividade}" value="#{atvLista}" />   							
+						  </h:commandLink> 
+				   </span> 
+			</div>
+			</ui:repeat>				
+
+
+
+			<h:outputText rendered="#{not empty Parceria.atvSemParcComSolic}">
+						
+			<div id="atividades_sem_parceiro">
+					<h3 class="sem_parceria">
+						<strong>Atividades sem parceiros - com solicitações pendentes</strong> 
+					<!-- 	<h:commandLink title="ver todas atividades sem parceiro com solicitações pendentes" 
+										rendered="#{not empty Parceria.atvSemParcComSolic}"><strong>&gt;&gt;</strong> 
+										Ver Todas Solicitações</h:commandLink>  -->
+					</h3>
+					
+					<ui:repeat value="#{Parceria.atvSemParcComSolic}" var="atvParc" size="4" >		
+						<ui:repeat value="#{atvParc.solicitacoes}" var="atvSolic" size="0" >						
+							<ul>
+								<li class="atvSolicitada"><strong><h:outputText value="#{atvParc.nomeLista}" /></strong></li>
+								<li><strong>Última Solicitação</strong></li>
+								<li><h:outputText value="#{atvSolic.nomeLista}" /></li>
+								<li><h:outputText value="#{atvSolic.categoria.nome}" /></li>
+								<li>Cadastro: <span/><h:outputText value="#{atvSolic.dataCadastro.dataFormatada}" /></li>
+								<li>Comentários: <span/><h:outputText value="#{atvSolic.comentarios}" /></li>
+								<li>
+								<p><span>
+									<h:commandLink  action="#{Parceria.exibeSolicitacoes}"  value="ver outras solicitações" 
+									title="ver todas as solicitações para a atividade #{atvParc}">
+										<!-- seta objeto alvo no atributo do MB -->								
+										<f:setPropertyActionListener id="lin18" target="#{Parceria.atividade}" value="#{atvParc}" />							
+									</h:commandLink>
+								</span></p>	
+								</li>												
+							</ul>	
+						</ui:repeat>						
+					</ui:repeat>
+						
+				</div>
+				</h:outputText>		
+			</div>
+		</div>
+			</h:form>
+	</ui:define>
+	
+	</ui:composition>
+        
+    </body>
+</html>
+	

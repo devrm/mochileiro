@@ -1,0 +1,310 @@
+	#conteudo {
+		height: 300px;
+		margin:0 5px;
+	}
+	
+	.info1 {
+		border-bottom: 1px dotted gray;
+		margin-bottom: 5px;
+		padding-bottom: 2px;
+		margin-top:0;
+	}
+	
+	#informe {
+		height: 20px;
+		margin: 3px 0 10px 0;
+	}
+	
+	#descricao strong {
+		color: green;
+	}
+	
+	#descricao p {
+		border: 1px solid yellow;
+		margin-bottom: 5px;
+		padding: 3px;
+		background-color: #fff7c0;
+		font-weight: bold;
+		text-align: justify;
+	}
+	
+	#descricao #mensagem {
+		text-transform: lowercase;
+	}
+	
+	#conteudo form {
+		margin-bottom: 5px;
+		margin-top: 2px;
+	}
+	
+	fieldset,.periodo2,.info_servico {
+		width: 48%;
+		padding: 5px;
+		border: 1px solid #c9d2d8;
+	}
+	
+	fieldset {
+		margin-bottom: 10px;
+	}
+	
+	legend {
+		font-weight: bold;
+	}
+	
+	label {
+		width: 99%;
+		float: left;
+		display: block;
+	}
+	
+	input,textarea {
+		padding: 1px;
+		width: 100%;
+	}
+	
+	#conteudo small {
+		font-size: 12px;
+		height: 12px;
+		margin: 0 0 1px 60%;
+		float: right;
+		color: red;
+		height: 12px;
+	}
+	
+	#conteudo span {
+		color: gray;
+		font-size: 80%;
+		margin-right: 3px;
+	}
+	
+	#formcadatividade input,#formcadatividade textarea {
+		width: 100%;
+	}
+	
+	
+	.exibicao select {
+		margin-left: 3px;
+		margin-right: -10px;
+		width: 115px;
+		margin-bottom: -3px;
+	}
+	
+	.exibicao .nome {
+		margin-top: 13px;
+	}
+	
+	.exibicao textarea {
+		height: 140px;
+		height: 153px\  /*hack ie8 */
+	}
+	
+	.exibicao {
+		margin-right: 9px;
+	}
+	
+	.exibicao .erronome {
+		width: 100%;
+		text-align: right;
+	}
+	
+	.exibicao,.periodo2 {
+		float: left;
+	}
+	
+	#preco {
+		width: 100%;
+	}
+	
+	#preco input {
+		margin-left: 3px;
+	}
+	
+	.valor {
+		width: 187px;
+	}
+	
+	.valor input {
+		width: 65px;
+	}
+	
+	.chkbox {
+		margin: 2px 10px 0 5px;
+		width: 160px;
+		float: right;
+		font-weigth: bold;
+		color: gray;
+	}
+	
+	.chkbox input {
+		width: 12px;
+		height: 12px;
+		border: none;
+	}
+	
+	#preco small {
+		width: 100%;
+		padding-bottom: 0;
+	}
+	
+	.localizacao,.periodo,.imagem,.info_servico {
+		float: right;
+	}
+	
+	.num {
+		width: 65px;
+	}
+	
+	.com {
+		width: 79%;
+		margin-left: 15px;
+	}
+	
+	.com input {
+		width: 100%;
+	}
+	
+	.imagem input {
+		background-color: white;
+	}
+	
+	#horario {
+		border-right: 1px solid #c9d2d8;
+		padding-right: 10px;
+		padding-left: 10px;
+		width: 180px;
+	}
+	
+	#horario small {
+		width: 250px;
+		float: left;
+		margin-left: 0;
+	}
+	
+	#horario,.disponibilidade,.disponibilidade2 {
+		float: left;
+	}
+	
+	#horario input,.disponibilidade input,.disponibilidade2 input {
+		width: 23px;
+		text-align: center;
+	}
+	
+	.disponibilidade .anoinicio,.disponibilidade2 .anofim {
+		width: 46px;
+	}
+	
+	.disponibilidade,.disponibilidade2 {
+		margin-top: 2px;
+		width: 200px;
+	}
+	
+	.disponibilidade {
+		margin-left: -1px;
+		float: left;
+	}
+	
+	.disponibilidade2 {
+		float: right;
+		margin-right: -5px;
+	}
+	
+	.periodo2 {
+		height: 48px;
+	}
+	
+	.periodo2 small {
+		padding: 0;
+		clear: both;
+		width: 100%;
+		text-align: center;
+	}
+	
+	#dias {
+		width: 187px;
+		margin-left: 7px;
+		float: right;
+	}
+	
+	#dias select {
+		width: 82px;
+	}
+	
+	#dias small {
+		width: 180px;
+		float: left;
+		margin-top: -4px;
+		margin-left: 65px;
+	}
+	
+	#eventos {
+		clear: both;
+		height: 49px;
+		margin-top: 0;
+	}
+	
+	#eventos fieldset {
+		margin-top: 0;
+		padding-top: 0;
+	}
+	
+	.info_evento {
+		float: right;
+		height: 48px;
+	}
+	
+	.info_evento p {
+		font-weight: bold;
+		color: gray;
+		text-align: justify;
+		font-size: 14px;
+		margin-top: -1px;
+	}
+	
+	.rotulo {
+		color: black;
+	}
+	
+	.erroesquerda {
+		float: left;
+		margin-left: 0;
+		width: 200px;
+		height: 12px;
+	}
+	
+	.errocombo {
+		margin: 5px 0 0 5px;
+		clear: both;
+	}
+	
+	#imagem input {
+		width: 100%;
+	}
+	
+	#imagem small {
+		float: left;
+		margin-left: 0;
+	}
+	
+	#obrigatorio {
+		clear: both;
+		margin-top: 5px;
+	}
+	
+	#obrigatorio strong,.botao {
+		margin: 0 10px;
+	}
+	
+	.botao {
+		float: right;
+		margin-bottom: 10px;
+	}
+	
+	/* Formatação para campos não atualizaveis no formulário */
+	.inativo {
+		background-color: #f2f6Eb;
+		color: gray;
+	}
+	
+	.msgInativo {
+		color: gray;
+	}

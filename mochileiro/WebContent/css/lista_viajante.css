@@ -1,0 +1,88 @@
+#ultimasAtividades {
+	clear: both;
+}
+
+#ultimasAtividades h3 {
+	background-color: #88bb6d;
+	color: white;
+	padding: 1px 0 1px 10px;
+	font-size: 15px;
+	clear: both;
+}
+
+#ultimasAtividades #lista {
+	clear: both;
+	text-align: center;
+	border: 1px solid #c1c0bf;
+	color: gray;
+	margin-top: 5px;
+}
+
+#lista #alerta {
+	font-weight: bold;
+	padding: 3px;
+}
+
+#lista .visualizar {
+	text-align: center;
+}
+
+table {
+	width: 100%;
+	text-align: left;
+}
+
+table #vis {
+	text-align: center;
+}
+
+#formulario a {
+	color: #3a75f7;
+	margin: 2px;
+}
+
+#formulario a:hover {
+	color: #bc0909;
+}
+
+#links a {
+	margin-right: 10px;
+	text-align: center;
+}
+
+table td {
+	padding: 2px;
+}
+
+.lin_a {
+	background-color: #f1f0ef;
+}
+
+.lin_b {
+	background-color: white;
+}
+
+.paginacao {
+	margin-top: 5px;
+}
+
+.paginacao a {
+	border: 1px solid white;
+}
+
+/* layout tela de solicitação de parceria */
+#divSolicitacao .titulo{
+	margin-bottom: 5px;
+	border-bottom: 1px dotted black;
+	padding-bottom: 2px;
+}
+
+#divSolicitacao th {
+	background-color: silver;
+}
+
+#divSolicitacao table{
+	border: 1px solid silver;
+}
+	
+

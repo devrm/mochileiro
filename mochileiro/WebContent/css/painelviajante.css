@@ -1,0 +1,136 @@
+#cabecalho {
+	background-color: #88BB6E;
+}
+
+#acoes h3,#infoRota h3 {
+	background-color: #3a75f7;
+	color: white;
+	padding: 3px;
+	width: 240px;
+}
+
+#acoes,#infoRota {
+	float: left;
+}
+
+#acoesusuario ul {
+	margin-top: 20px;
+	text-transform: uppercase;
+}
+
+.bordafim {
+	border-bottom: 1px solid #f1f0ef;
+}
+
+ul#menu li a {
+	padding: 6px 0 6px 10px;
+	color: silver;
+	font-weight: bold;
+	display: block;
+	border-top: 1px solid #f1f0ef;
+	border-bottom: 1px solid white;
+}
+
+ul#menu li a:hover{
+	background-color: #bc0909;
+	color: white;
+	border: 1px solid #ac0101;
+	border-bottom: 1px solid #9b0202;
+	border-right: 1px solid #9b0202;
+}
+
+#infoConta {
+	margin-top: 20px;
+	border: 1px solid #c1c0bf;
+	width: 240px;
+	color: gray;
+	width: 243px;
+	background-color: #f1f0ef;
+}
+
+#infoConta strong,#infoConta p {
+	padding: 4px;
+	font-size: 14px;
+}
+
+#infoRota #descInfoRota {
+	background-color: #f1f0ef;
+	height: 262px;
+	margin-top: 5px;
+	width: 245px;
+}
+
+#infoRota a:hover{
+	text-decoration: underline;
+}
+	
+
+#rtpesq{
+	margin:0 5px;
+	color: gray;
+}
+
+#rtpesq a{
+	color: gray;
+}
+
+#rtpesq a:hover{
+	color: #3a75f7;
+}
+
+#rtpesq h4{
+	float: left;
+	margin-top: 10px;	
+	margin-bottom: 10px;
+	text-align: center;
+	width: 100%;	
+}
+
+.nomeAtv{
+	margin:2px 5px 25px 5px;
+}
+
+.linkVisualizar{
+	margin: 10px 10px;
+	float: right;
+	color: #3a75f7;
+}
+
+
+#semRota {
+	margin-top: 5px;
+	heigth: 260px;
+	width: 244px;
+	border: 1px solid silver;
+}
+
+#semRota p {
+	margin: 15px 19px 15px 19px;
+	text-align: justify;
+	color: silver;
+	font-weight: bold;
+	line-height: 28px;
+	border-bottom: 1px solid silver;
+	padding-bottom: 5px;
+}
+
+#mapa {
+	border: 1px solid gray;
+	border-bottom: 1px solid silver;
+	border-right: 1px solid silver;
+	float: left;
+	margin: 0 7px 10px 7px;		
+}
+
+#mapa h3 {
+	color: orange;
+	border-bottom: 1px solid orange;
+	width: 336px;
+	clear: both;
+}
+
+#googleMaps{
+	width: 331px;
+	height: 293px;	
+}
+

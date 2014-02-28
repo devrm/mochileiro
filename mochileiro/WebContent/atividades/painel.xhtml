@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+	  xmlns:m="http://code.google.com/p/gmaps4jsf/">
+
+	
+    <body>
+        
+	<ui:composition template="../configuracao/template.xhtml">
+            
+	<ui:define name="titulo">
+	.:: O Mochileiro - Painel Viajantes ::.
+	</ui:define>
+	
+	<ui:define name="estilos">
+    	<link href="../css/painelviajante.css" rel="stylesheet" type="text/css" />    
+    	
+	    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAxrVS1QxlpJHXxQ2Vxg2bJBQdkFK-tWRbPPQS4ACM1pq_e-PltxQXeyH20wQuqDaQ_6EM5UeGGVpnIw"
+	      type="text/javascript">
+	    </script>    	
+	    		 
+	</ui:define>
+	
+	<ui:define name="conteúdo">
+	
+		<div id="cabecalho">
+			<div class="borda">
+				<h3>Gerenciamento de Conta - <span></span><h:outputText value="#{Viajante.viajante.nome}"></h:outputText></h3>
+			</div>
+		</div>
+		
+		<div id="acoes">
+			<h3>Ações Disponíveis</h3>
+						
+			<!-- menu de ações do viajante -->
+			<ui:include src="/configuracao/operacoes_viajante.xhtml" />
+		
+			
+		<div id="infoConta">
+			<p><strong>Informações da Conta</strong></p>
+			<p><strong>NickName:</strong> <h:outputText value="#{Viajante.viajante.usuario.nickName}"></h:outputText></p>			
+			<p><strong>Data Cadastro:</strong><h:outputText value="#{Viajante.viajante.dataCadastro.dataFormatada}"></h:outputText> </p>
+			<p><strong>Itens Lista:</strong> <h:outputText value="#{Viajante.qtdAtividades}"></h:outputText></p>
+		</div>
+		</div>
+		
+		<div id="mapa">
+			<div id="googleMaps">
+				<m:map width="331px" height="293px"	address="#{Viajante.maps.origem}"><m:marker/>
+		    		<m:mapControl name="GLargeMapControl" position="G_ANCHOR_BOTTOM_RIGHT" />
+			  		<m:mapControl name="GMapTypeControl" type="G_NORMAL_MAP"/>
+			  	</m:map>	  				
+			</div>			
+		</div>
+		
+		<div id="infoRota">
+			<h3>>> Informações</h3>
+			<h:outputText rendered="#{Viajante.maps.rota}" id="rota">
+			<div id="descInfoRota">
+			</div>
+			</h:outputText>
+			<h:outputText rendered="#{not Viajante.maps.rota}" >
+				<div id="semRota">
+					<p><h:message for="rota"></h:message></p>
+				</div>				
+			</h:outputText>
+		</div>
+
+		<h:outputText rendered="#{Viajante.qtdAtividades != 'Lista Vazia'}">
+		<div id="ultimasAtividades">
+			
+			<h3>Últimas Atividades Adicionadas a Lista de Favoritos</h3>
+			
+			<div id="lista">			
+				<ui:repeat id="listafav" value="#{Viajante.viajante.listaAtividade}" var="itemFavoritos" size="2">
+				
+					<h3><h:outputText id="linha181" value="#{itemFavoritos.nomeLista}"></h:outputText>  <small><h:outputText value="#{itemLista.categoria.nome}"></h:outputText></small></h3>
+			
+					<p><h:outputText id="linha183" value="#{itemFavoritos.descricaoLista}"></h:outputText>... </p>
+			
+					<h:commandLink  id="linha185" action="#{visualizaAtividade.carregaAtividade}" value="Visualizar" title="Visualizar informações completas" class="visualizar" />
+									
+				</ui:repeat>
+		</div>
+		
+		</div>
+		</h:outputText>
+				
+		<div id="mensagemPainel">						
+		   <span jsfc="h:message" for="alertaPainel" id="alertaPainel"></span>
+		</div>	
+			
+	</ui:define>
+	
+	</ui:composition>
+        
+    </body>
+</html>
+	

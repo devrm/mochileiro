@@ -1,0 +1,26 @@
+	
+	#com p{
+		border-bottom: 1px dotted black;
+		padding-bottom:2px;	
+			
+	}
+	
+	#com #comentarios{
+	margin-top:5px;
+	}
+	
+	#comentarios td{
+	border: 1px solid white;
+	padding:5px;
+	background-color: #f1f2f7;
+	margin:5px;
+	}
+	
+	#com comentarios strong{
+	margin-right:5px;
+	}
+		
+	#com #comentarios p{
+	border:none;
+	}
+	

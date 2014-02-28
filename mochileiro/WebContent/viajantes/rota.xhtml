@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core" lang="pt-br">
+
+	
+    <body>
+    <!-- template com chamada ao javascript GoogleMaps -->    
+	<ui:composition template="../configuracao/templateRotas.xhtml">
+            
+	<ui:define name="titulo">
+	.:: O Mochileiro - Rota Detalhada ::.
+	</ui:define>
+	
+	<ui:define name="estilos">
+    	<link href="../css/rota.css" rel="stylesheet" type="text/css" />    	  
+	</ui:define>
+	
+	<ui:define name="conteúdo">
+		
+		<div id="cont">
+		
+					<h2>Rota encontrada para as atividades pesquisadas</h2>
+					<table>					
+					<tr><th>Rota Encontrada</th><th>Mapa</th></tr>
+					<tr>
+						<td>
+							<!-- div container da rota -->
+							<div id="directions"></div>	
+						</td>
+						<td>
+							<!-- div container do mapa -->
+							<div id="googleMaps"></div>			
+						</td>		
+					</tr>
+					</table>
+					
+					<h:form prependId="false">	
+						<h:commandButton action="#{Viajante.salvaRota}" value="Gravar Rota" id="botao" rendered="#{Viajante.exibeBotao}" style="float: right; margin: 10px 37px 10px 10px;"/>
+						<div id="botao"></div>						
+					</h:form>
+				
+				<!-- campos lidos pelo javascript para gerar mapa -->
+				<h:inputHidden value="#{Viajante.maps.origem}" id="from"/>
+				<h:inputHidden value="#{Viajante.maps.destino}" id="to" />   	
+			</div>
+			
+		</ui:define>	
+		</ui:composition>
+        
+	</body>
+</html>
+	

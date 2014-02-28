@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core" lang="pt-br">
+
+	  <head>
+	  	<!-- ajustes para o formulário de busca na visão do viajante -->	  
+	  	<link href="../css/ajuste_busca_viajante.css" rel="stylesheet" type="text/css"/>
+	  </head>
+
+<body>
+
+
+<h:form id="acoesusuario">
+	<ul id="menu">
+		<li><a href="../viajantes/atualiza.xhtml" title="Atualizar Informações da Conta"><span class="firula">>></span> Atualizar Cadastro</a></li>
+
+		<li><h:commandLink action="#{Viajante.getLista}"
+			title="Acessar lista de Favoritos"><span class="firula">>></span> Lista de Favoritos</h:commandLink></li>
+
+		<li><h:commandLink action="#{buscaAtividade.acessaBusca}"  title="Pesquisar Atividades Cadastradas"><span class="firula">>></span> Buscar Atividades</h:commandLink></li>
+		
+		<li class="bordafim">
+		<a	jsfc="h:commandLink" action="#{Autenticacao.logout}"
+			title="sair do Painel"><span class="firula">>></span>Logout</a></li>
+	</ul>
+</h:form>
+</body>
+</html>
